@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="colorPrimary">#FF7043</color>
+    <color name="colorPrimaryDark">#FF5722</color>
+    <color name="pressed">#DD2C00</color>
+    <color name="windowBackgroundColor">#FF5722</color>
+    <color name="black_translucent">#80000000</color>
+</resources>

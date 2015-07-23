@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">RestoPic</string>
+    <string name="account">Créer un compte</string>
+    <string name="forgot_password">Avez-vous oublié votre mot de passe ?</string>
+    <string name="connect">Se connecter</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="password">Mot de passe</string>
+    <string name="remember"> Se souvenir de moi </string>
+    <string name="facebook_app_id"> 454278668084236 </string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="age">Age</string>
+    <string name="email">E-mail</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="create">Enregistrer</string>
+    <string name="capture">+</string>
+    <string name="partage">Ok</string>
+    <string name="Picture">Picture</string>
+    <string name="continuer">continuer</string>
+    <string name="annuler">annuler</string>
+    <string name="nouveau_mot_de_passe">nouveau mot de passe</string>
+    <string name="ou">Ou</string>
+    <string name="cestbon">C\'est bon ?</string>
+    <string name="voulez">Voulez-vous partager cette photo ?</string>
+    <string name="sfb">Small Text</string>
+</resources>

@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/capture"
+        android:title="+"
+        android:showAsAction="always|withText" />
+    <item
+        android:id="@+id/Accueil"
+        android:title="Accueil"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/deconnexion"
+        android:title="Se déconnecter"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/aide"
+        android:title="Aide"
+        app:showAsAction="never"/>
+</menu>
