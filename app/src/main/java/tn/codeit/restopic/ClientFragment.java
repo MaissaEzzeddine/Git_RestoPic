@@ -150,10 +150,10 @@ public class ClientFragment extends Fragment {
             if (user != null) {
 
                 Toast.makeText(getActivity(), user.optString("name") + "\n" + user.optString("gender") + "\n" + user.optString("email") + "\n" + user.opt("birthday"), Toast.LENGTH_SHORT).show();
-                Log.d("connectedStateLabel",user.optString("name"));
-                Log.d("connectedStateLabel",user.optString("gender"));
-                Log.d("connectedStateLabel",user.optString("email"));
-                Log.d("connectedStateLabel",user.optString("birthday"));
+                Log.d("FacebookInformation",user.optString("name"));
+                Log.d("FacebookInformation",user.optString("gender"));
+                Log.d("FacebookInformation",user.optString("email"));
+                Log.d("FacebookInformation",user.optString("birthday"));
 
             }
         }

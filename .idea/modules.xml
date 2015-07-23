@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RestoPic.iml" filepath="$PROJECT_DIR$/RestoPic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Git_RestoPic.iml" filepath="$PROJECT_DIR$/Git_RestoPic.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/facebook/facebook.iml" filepath="$PROJECT_DIR$/facebook/facebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdp-android/sdp-android.iml" filepath="$PROJECT_DIR$/sdp-android/sdp-android.iml" />
