@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -148,13 +147,7 @@ public class ClientFragment extends Fragment {
         }
         if (AccessToken.getCurrentAccessToken() != null) {
             if (user != null) {
-
                 Toast.makeText(getActivity(), user.optString("name") + "\n" + user.optString("gender") + "\n" + user.optString("email") + "\n" + user.opt("birthday"), Toast.LENGTH_SHORT).show();
-                Log.d("FacebookInformation",user.optString("name"));
-                Log.d("FacebookInformation",user.optString("gender"));
-                Log.d("FacebookInformation",user.optString("email"));
-                Log.d("FacebookInformation",user.optString("birthday"));
-
             }
         }
     }
