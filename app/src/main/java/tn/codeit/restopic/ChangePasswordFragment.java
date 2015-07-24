@@ -3,7 +3,11 @@ package tn.codeit.restopic;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +25,12 @@ public class ChangePasswordFragment extends Fragment {
     private static final String TAG_Fail = "error";
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.change_password_layout, container, false);
@@ -32,14 +42,15 @@ public class ChangePasswordFragment extends Fragment {
                 new forgotPassword().execute();
             }
         });
-        cancel = (Button) view.findViewById(R.id.cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-            }
-        });
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setTitle("reinitialiser le mot de passe");
+        actionBar.show();
     }
 
     class forgotPassword extends AsyncTask<String, String, String> {
@@ -69,6 +80,22 @@ public class ChangePasswordFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_retour, menu);
+    }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.retour:
+                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

@@ -11,24 +11,16 @@
         <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIIkVx8UnHhoB8sU1GT74aYt-kBLobE0M4uhvWTg" />
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:name=".MainActivity">
         </activity>
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="@string/app_name">
-        </activity>
-
-        <activity
-            android:name=".PartagePhotoActivity"
-            android:label="@string/app_name">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
 
         <activity
             android:name=".SplashScreen"
-            android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
 
         <intent-filter>

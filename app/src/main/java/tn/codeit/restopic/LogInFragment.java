@@ -6,9 +6,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +21,8 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
@@ -44,14 +44,23 @@ public class LogInFragment extends Fragment  {
     SessionManager session;
     TextView tv1;
 
+    String nom,prenom,email;
+
+    private static final String NAME = "name";
+    private static final String GENDER = "gender";
+    private static final String EMAIL = "email";
+    private static final String BIRTHDAY = "birthday";
+
+    private static final String FIELDS = "fields";
+
+    private static final String REQUEST_FIELDS = TextUtils.join(",", new String[]{NAME, GENDER, EMAIL, BIRTHDAY});
+
+    private JSONObject user;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-        AppCompatActivity activity = (AppCompatActivity) this.getActivity();
-        ActionBar aBar = activity.getSupportActionBar();
-        aBar.hide();
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
@@ -72,6 +81,12 @@ public class LogInFragment extends Fragment  {
 
             }
         };
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ((MainActivity)getActivity()).getSupportActionBar().hide();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
@@ -100,8 +115,9 @@ public class LogInFragment extends Fragment  {
         ButtonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                session.createLoginSession("CompteFacebook");
-                getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                fetchUserInfo();
+                updateUI();
+                new CreateNewUserFb().execute();
             }
 
             @Override
@@ -113,13 +129,43 @@ public class LogInFragment extends Fragment  {
             public void onError(FacebookException exception) {
                 Toast.makeText(getActivity(), "Login error", Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(), exception.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                Log.d("connectedStateLabel", exception.getMessage().toString());
             }
 
         });
         return view;
     }
 
+    class CreateNewUserFb extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        protected String doInBackground(String... args) {
+            if (AccessToken.getCurrentAccessToken() != null) {
+                if (user != null) {
+                    nom = user.optString("name");
+                    prenom = user.optString("name");
+                    email = user.optString("email");
+                }
+            }
+            UserFunctions uf=new UserFunctions();
+            JSONObject json = uf.createAccountFacebook(nom, prenom, email);
+            try {
+                Boolean fail = json.getBoolean(TAG_FAIL);
+                if (!fail) {
+                    session.createLoginSession("CompteFacebook");
+                    getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                }
+                else {
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        protected void onPostExecute(String file_url) {
+        }
+    }
 
     class Connect extends AsyncTask<String, String, String> {
                         @Override
@@ -151,4 +197,56 @@ public class LogInFragment extends Fragment  {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+       fetchUserInfo();
+        updateUI();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        fetchUserInfo();
+        updateUI();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+
+    private void fetchUserInfo() {
+        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        if (accessToken != null) {
+            GraphRequest request = GraphRequest.newMeRequest(
+                    accessToken, new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(JSONObject me, GraphResponse response) {
+                            user = me;
+                            updateUI();
+                        }
+                    });
+            Bundle parameters = new Bundle();
+            parameters.putString(FIELDS, REQUEST_FIELDS);
+            request.setParameters(parameters);
+            GraphRequest.executeBatchAsync(request);
+        } else {
+            user = null;
+        }
+    }
+
+    private void updateUI() {
+        if (!isAdded()) {
+            return;
+        }
+        if (AccessToken.getCurrentAccessToken() != null) {
+            if (user != null) {
+                //Toast.makeText(getActivity(), user.optString("name") + "\n" + user.optString("gender") + "\n" + user.optString("email") + "\n" + user.opt("birthday"), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }

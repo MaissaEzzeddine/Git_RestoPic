@@ -2,29 +2,28 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@color/windowBackgroundColor"
-    android:id="@+id/:client_layout">
+    android:id="@+id/client_layout"
+    android:background="@color/BackgroundColorScreen">
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/_70sdp">
+        android:layout_gravity="center_vertical"
+        android:layout_centerInParent="true">
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/_155sdp"
             android:layout_height="@dimen/_130sdp"
-            card_view:cardCornerRadius="10dp"
+            card_view:cardCornerRadius="5dp"
             android:layout_row="1"
             android:layout_column="1">
 
             <ImageView
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/selfie"
-                android:layout_gravity="center"
-                android:padding="5dp" />
+                android:layout_gravity="center" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -51,23 +50,21 @@
 
             </LinearLayout>
 
-
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/_155sdp"
             android:layout_height="@dimen/_130sdp"
-            card_view:cardCornerRadius="10dp"
+            card_view:cardCornerRadius="5dp"
             android:layout_row="1"
             android:layout_column="2">
 
             <ImageView
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/selfie"
-                android:layout_gravity="center"
-                android:padding="5dp" />
+                android:layout_gravity="center" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -97,18 +94,17 @@
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/_155sdp"
             android:layout_height="@dimen/_130sdp"
-            card_view:cardCornerRadius="10dp"
+            card_view:cardCornerRadius="5dp"
             android:layout_row="2"
             android:layout_column="1">
 
             <ImageView
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/selfie"
-                android:layout_gravity="center"
-                android:padding="5dp" />
+                android:layout_gravity="center" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -138,20 +134,19 @@
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/_155sdp"
             android:layout_height="@dimen/_130sdp"
-            card_view:cardCornerRadius="10dp"
+            card_view:cardCornerRadius="5dp"
             android:layout_row="2"
             android:layout_column="2">
 
             <ImageView
-                android:layout_width="175dp"
-                android:layout_height="175dp"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/selfie"
-                android:layout_gravity="center"
-                android:padding="5dp" />
+                android:layout_gravity="center" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -171,19 +166,9 @@
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@drawable/circle_red"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="15dp" />
+                    android:layout_marginLeft="150dp" />
 
-            </RelativeLayout>
+            </LinearLayout>
         </android.support.v7.widget.CardView>
     </GridLayout>
 </RelativeLayout>
-
-
-
-
-
-
-
-
-

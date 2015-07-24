@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/windowBackgroundColor"
+    android:background="@color/BackgroundColorScreen"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/partage_photo_layout">
@@ -11,8 +11,19 @@
         android:text="@string/voulez"
         android:id="@+id/text_partage"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_below="@+id/text_confirmation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_20sdp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cestbon"
+        android:id="@+id/text_confirmation"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_20sdp" />
 
@@ -24,16 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_20sdp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cestbon"
-        android:id="@+id/text_confirmation"
-        android:textColor="@color/white"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_20sdp" />
+
 
 
 </RelativeLayout>

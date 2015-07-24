@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/login_layout"
-    android:background="@color/windowBackgroundColor"
+    android:background="@color/BackgroundColor"
     android:layout_gravity="center_vertical">
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_below="@+id/facebook"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_5sdp"
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/password"
         android:paddingLeft="@dimen/_2sdp" />
 
     <EditText
@@ -63,7 +63,7 @@
         android:layout_below="@+id/email"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_1sdp"
-        android:drawableLeft="@drawable/password"
+        android:drawableLeft="@drawable/user"
         android:paddingLeft="@dimen/_2sdp" />
 
     <Button

@@ -3,7 +3,11 @@ package tn.codeit.restopic;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,15 +20,20 @@ import tn.codeit.restopic.webservice.UserFunctions;
 
 public class CreateAccountFragment extends Fragment {
 
-    EditText inputNom , inputPrenom , inputAge , inputEmail , inputPass ;
+    EditText inputNom , inputPrenom , inputEmail , inputPass ;
     private static final String TAG_FAIL = "error";
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.create_account_layout, container, false) ;
         inputNom = (EditText) view.findViewById(R.id.nom);
         inputPrenom = (EditText) view.findViewById(R.id.prenom);
-        inputAge = (EditText) view.findViewById(R.id.age);
         inputEmail = (EditText) view.findViewById(R.id.email);
         inputPass = (EditText) view.findViewById(R.id.create_password);
         Button buttonCreateAccount = (Button) view.findViewById(R.id.create_button);
@@ -37,6 +46,13 @@ public class CreateAccountFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setTitle("Creation d'un compte");
+        actionBar.show();
+    }
     class CreateNewUser extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
@@ -45,11 +61,10 @@ public class CreateAccountFragment extends Fragment {
         protected String doInBackground(String... args) {
             String nom = inputNom.getText().toString();
             String prenom = inputPrenom.getText().toString();
-            String age = inputAge.getText().toString();
             String email = inputEmail.getText().toString();
             String password = inputPass.getText().toString();
             UserFunctions uf=new UserFunctions();
-            JSONObject json = uf.createAccount(nom,prenom,age,email,password);
+            JSONObject json = uf.createAccount(nom,prenom,email,password);
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
@@ -62,6 +77,24 @@ public class CreateAccountFragment extends Fragment {
             return null;
         }
         protected void onPostExecute(String file_url) {
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_retour, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.retour:
+                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

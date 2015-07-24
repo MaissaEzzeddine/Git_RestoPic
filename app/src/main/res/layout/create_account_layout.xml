@@ -2,8 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/create_account_layout"
-    android:background="@color/windowBackgroundColor">
-
+    android:background="@color/BackgroundColorScreen">
     <EditText
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_25sdp"

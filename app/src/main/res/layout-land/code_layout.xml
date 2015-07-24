@@ -2,18 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackgroundColor"
+    android:background="@color/BackgroundColorScreen"
     android:id="@+id/code_layout">
 
     <EditText
-        android:layout_width="@dimen/_200sdp"
+        android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_35sdp"
-        android:id="@+id/code"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:id="@+id/reset_password"
+        android:background="@color/white"
+        android:textColor="@color/colorPrimaryDark"
         android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        android:hint="Veuillez saisir le code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        android:hint="@string/nouveau_mot_de_passe"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="@dimen/_110sdp"
@@ -23,20 +25,7 @@
         android:background="@drawable/custom_btn"
         android:layout_gravity="center_horizontal"
         style="@style/com_facebook_button"
-        android:layout_below="@+id/code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_20sdp" />
-
-    <Button
-        android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_36sdp"
-        android:text="@string/annuler"
-        android:background="@drawable/custom_btn"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/cancel"
-        style="@style/com_facebook_button"
-        android:layout_below="@+id/valider"
-        android:layout_alignLeft="@+id/valider"
-        android:layout_alignStart="@+id/valider" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

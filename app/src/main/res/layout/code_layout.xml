@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackgroundColor"
+    android:background="@color/BackgroundColorScreen"
     android:id="@+id/code_layout">
 
     <EditText
@@ -29,18 +29,5 @@
         android:layout_below="@+id/code"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_20sdp" />
-
-    <Button
-        android:layout_width="@dimen/_110sdp"
-        android:layout_height="@dimen/_36sdp"
-        android:text="@string/annuler"
-        android:textSize="@dimen/_10sdp"
-        android:background="@drawable/custom_btn"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/cancel"
-        style="@style/com_facebook_button"
-        android:layout_below="@+id/valider"
-        android:layout_alignLeft="@+id/valider"
-        android:layout_alignStart="@+id/valider" />
 
 </RelativeLayout>
