@@ -5,7 +5,7 @@
     <item android:id="@+id/capture"
         android:title="+"
         android:icon="@drawable/plus"
-        app:showAsAction="always|withText" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/liste_coupons"
         android:title="Liste des coupons"
