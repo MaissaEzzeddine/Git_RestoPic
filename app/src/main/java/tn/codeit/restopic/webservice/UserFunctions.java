@@ -10,12 +10,12 @@ import java.util.List;
 public class UserFunctions {
 
     JSONParser jsonParser = new JSONParser();
-    private static String NewPasswordURL = "http://192.168.1.8/RestoPic/v1/nouveau";
-    private static String codeURL = "http://192.168.1.8/RestoPic/v1/code";
-    private static String url_create_account = "http://192.168.1.8/RestoPic/v1/register";
-    private static String url_create_account_facebook = "http://192.168.1.8/RestoPic/v1/register_facebook";
-    private static String ForgotPasswordURL = "http://192.168.1.8/RestoPic/v1/forpass";
-    private static String LoginUrl = "http://192.168.1.8/RestoPic/v1/login";
+    private static String NewPasswordURL = "http://192.168.1.26/RestoPic/v1/nouveau";
+    private static String codeURL = "http://192.168.1.26/RestoPic/v1/code";
+    private static String url_create_account = "http://192.168.1.26/RestoPic/v1/register";
+    private static String url_create_account_facebook = "http://192.168.1.26/RestoPic/v1/register_facebook";
+    private static String ForgotPasswordURL = "http://192.168.1.26/RestoPic/v1/forpass";
+    private static String LoginUrl = "http://192.168.1.26/RestoPic/v1/login";
 
     public JSONObject  changePassword ( String email ,String password) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();

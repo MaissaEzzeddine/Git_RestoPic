@@ -15,7 +15,7 @@ public  class MainActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         if (!session.checkLogin()) {
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.container, new LogInFragment()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.container, new ClientFragment()).commit();
             }
         }
         else {

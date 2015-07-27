@@ -7,6 +7,6 @@
     <color name="colorPrimaryDark">#FF5722</color>
     <color name="pressed">#DD2C00</color>
     <color name="BackgroundColor">#FF5722</color>
-    <color name="BackgroundColorScreen">#F5F5F5</color>
+    <color name="BackgroundColorScreen">#CFD8DC</color>
     <color name="black_translucent">#80000000</color>
 </resources>
