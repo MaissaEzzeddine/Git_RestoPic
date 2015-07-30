@@ -2,11 +2,13 @@ package tn.codeit.restopic;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,17 +20,27 @@ import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ClientFragment extends Fragment {
 
     SessionManager session;
     int code = 1;
-
+    private static final String TAG = MainActivity.class.getSimpleName();
+    Uri fileUri ;
+    int id;
+    String timeStamp ,  CurrentPhotoPath ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
+        String name = session.getName() ;
+        id = Integer.parseInt(name);
         setHasOptionsMenu(true);
     }
 
@@ -67,7 +79,16 @@ public class ClientFragment extends Fragment {
             case R.id.capture:
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (i.resolveActivity(getActivity().getPackageManager()) != null) {
-                    startActivityForResult(i, code);
+                    File photoFile = null;
+                    try {
+                        photoFile = createImageFile();
+                    } catch (IOException ex) {}
+                    // Continue only if the File was successfully created
+                    if (photoFile != null) {
+                        fileUri = Uri.fromFile(photoFile) ;
+                        i.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                        startActivityForResult(i, code);
+                    }
                 }
                 return true;
             default:
@@ -75,15 +96,33 @@ public class ClientFragment extends Fragment {
         }
     }
 
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        String user_id = "" + id +"_" ;
+        File storageDir = Environment.getExternalStorageDirectory()  ;
+        File image = new File(storageDir + "/" + user_id + timeStamp + ".jpg");
+        // Save a file: path for use with ACTION_VIEW intents
+        CurrentPhotoPath = image.getAbsolutePath();
+        Log.e(TAG, "photo path = " + CurrentPhotoPath);
+        return image;
+    }
+    private void launchUploadActivity(boolean isImage , String  CurrentPhotoPath
+    ) {
+        Bundle bundle = new Bundle();
+        bundle.putString("filePath",CurrentPhotoPath );
+        bundle.putString("datePrise", timeStamp);
+        bundle.putBoolean("isImage", isImage);
+        bundle.putInt("id", id);
+        PartagePhotoFragment partagePhotoFragment = new PartagePhotoFragment();
+        partagePhotoFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();
+    }
+
     public  void  onActivityResult( int requestCode, int resultCode , Intent data ) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==code && resultCode == Activity.RESULT_OK) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("picture", bitmap);
-            PartagePhotoFragment partagePhotoFragment = new PartagePhotoFragment();
-            partagePhotoFragment.setArguments(bundle);
-            getFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();
+            launchUploadActivity(true,  CurrentPhotoPath );
         }
     }
 
@@ -91,6 +130,4 @@ public class ClientFragment extends Fragment {
         AccessToken.setCurrentAccessToken(null);
         Profile.setCurrentProfile(null);
     }
-
-
 }

@@ -28,6 +28,6 @@
         style="@style/com_facebook_button"
         android:layout_below="@+id/code"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_20sdp" />
+        android:layout_marginTop="@dimen/_10sdp" />
 
 </RelativeLayout>

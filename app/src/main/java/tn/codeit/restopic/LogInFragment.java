@@ -172,6 +172,7 @@ public class LogInFragment extends Fragment  {
                         protected void onPreExecute() {
                             super.onPreExecute();
                         }
+
                         protected String doInBackground(String... args) {
                             String email = inputEmail.getText().toString();
                             String password = inputPassword.getText().toString();
@@ -179,8 +180,9 @@ public class LogInFragment extends Fragment  {
                             JSONObject json = uf.connexion(email,password);
                             try {
                                 Boolean fail = json.getBoolean(TAG_FAIL);
+                                int id = json.getInt("id");
                                 if (!fail) {
-                                    session.createLoginSession("CompteApplicatipn");
+                                    session.createLoginSession(""+id);
                                     getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
                 } else {
                 }
@@ -244,7 +246,6 @@ public class LogInFragment extends Fragment  {
         }
         if (AccessToken.getCurrentAccessToken() != null) {
             if (user != null) {
-                //Toast.makeText(getActivity(), user.optString("name") + "\n" + user.optString("gender") + "\n" + user.optString("email") + "\n" + user.opt("birthday"), Toast.LENGTH_SHORT).show();
             }
         }
     }
