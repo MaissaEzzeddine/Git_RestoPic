@@ -20,10 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.facebook.AccessToken;
 import com.facebook.Profile;
-
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
