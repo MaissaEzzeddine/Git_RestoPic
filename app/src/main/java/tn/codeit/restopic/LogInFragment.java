@@ -134,7 +134,6 @@ public class LogInFragment extends Fragment  {
         });
         return view;
     }
-
     class CreateNewUserFb extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {

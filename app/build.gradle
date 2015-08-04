@@ -30,8 +30,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.+'
     compile 'com.android.support:support-v4:22.0.+'
     compile project(':facebook')
+    compile project(':volley')
     compile 'com.android.support:cardview-v7:22.1.1'
     compile 'com.intuit.sdp:sdp-android:1.0.2'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
 }
 

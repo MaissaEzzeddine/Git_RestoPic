@@ -59,8 +59,7 @@ public class CreateAccountFragment extends Fragment {
         TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
         mTitleTextView.setText("Creation d'un compte");
 
-        ImageButton imageButton = (ImageButton) mCustomView
-                .findViewById(R.id.imageButton);
+        ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imageButton);
         imageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

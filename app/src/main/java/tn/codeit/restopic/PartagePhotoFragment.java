@@ -20,8 +20,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.facebook.AccessToken;
 import com.facebook.Profile;
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +40,7 @@ public class PartagePhotoFragment extends Fragment {
     int code = 1;
     SessionManager session;
     private String filePath = null;
-    private static String upload = "http://restopic.16mb.com/RestoPic/pictures/upload.php";
+    private static String url_upload = "http://restopic.16mb.com/RestoPic/pictures/upload.php";
     Bitmap bitmap;
     private static final String TAG = MainActivity.class.getSimpleName();
     String CurrentPhotoPath;
@@ -64,7 +66,7 @@ public class PartagePhotoFragment extends Fragment {
 
         picture = (ImageView) view.findViewById(R.id.picture);
         if (filePath != null) {
-            previewMedia(isImage);
+            previewPicture(isImage);
         } else {
             Toast.makeText(getActivity().getApplicationContext(), "Sorry, file path is missing!", Toast.LENGTH_LONG).show();
         }
@@ -102,7 +104,7 @@ public class PartagePhotoFragment extends Fragment {
                 if (i.resolveActivity(getActivity().getPackageManager()) != null) {
                     File photoFile = null;
                     try {
-                        photoFile = createImageFile();
+                        photoFile = createPicture();
                     } catch (IOException ex) {}
                     if (photoFile != null) {
                         fileUri = Uri.fromFile(photoFile) ;
@@ -121,12 +123,14 @@ public class PartagePhotoFragment extends Fragment {
         }
     }
 
+
+
     public void logOut() {
         AccessToken.setCurrentAccessToken(null);
         Profile.setCurrentProfile(null);
     }
 
-    private void previewMedia(boolean isImage) {
+    private void previewPicture(boolean isImage) {
         // Checking whether captured media is image or video
         if (isImage) {
             picture.setVisibility(View.VISIBLE);
@@ -178,7 +182,7 @@ public class PartagePhotoFragment extends Fragment {
         } else {
             try {
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL(upload);
+                URL url = new URL(url_upload);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
@@ -223,7 +227,7 @@ public class PartagePhotoFragment extends Fragment {
 
                 serverResponseCode = conn.getResponseCode();
                 String serverResponseMessage = conn.getResponseMessage();
-                Log.e("uploadFile", "HTTP Response is : "+ serverResponseMessage + ": " + serverResponseCode);
+                Log.e("uploadPicture", "HTTP Response is : "+ serverResponseMessage + ": " + serverResponseCode);
 
                 if (serverResponseCode == 200) {
                 }
@@ -244,7 +248,7 @@ public class PartagePhotoFragment extends Fragment {
         }
     }
 
-    private File createImageFile() throws IOException {
+    private File createPicture() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
@@ -259,11 +263,11 @@ public class PartagePhotoFragment extends Fragment {
     public  void  onActivityResult( int requestCode, int resultCode , Intent data ) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==code && resultCode == Activity.RESULT_OK) {
-            launchUploadActivity(true);
+            launchPartagerPhoto(true);
         }
     }
 
-    private void launchUploadActivity(boolean isImage) {
+    private void launchPartagerPhoto(boolean isImage) {
         Bundle bundle = new Bundle();
         bundle.putString("filePath", fileUri.getPath());
         bundle.putBoolean("isImage", isImage);

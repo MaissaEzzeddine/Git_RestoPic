@@ -3,46 +3,42 @@ package tn.codeit.restopic;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.Profile;
 
-import org.json.JSONObject;
-
 public class ListeCouponsFragment extends Fragment {
     int code = 1;
     SessionManager session ;
-    private static final String NAME = "name";
-    private static final String GENDER = "gender";
-    private static final String EMAIL = "email";
-    private static final String BIRTHDAY = "birthday";
-
-    private static final String FIELDS = "fields";
-
-    private static final String REQUEST_FIELDS = TextUtils.join(",", new String[]{NAME, GENDER, EMAIL, BIRTHDAY});
-
-    private JSONObject user;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new SessionManager(getActivity().getApplicationContext());
-
         setHasOptionsMenu(true);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.liste_coupons_layout,  container, false);
+        View view =  inflater.inflate(R.layout.liste_coupons_layout,  container, false);
+        TextView textView = (TextView) view.findViewById(R.id.codebarre);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "font/code.ttf");
+        textView.setTypeface(font);
+
+        // generate barcode string
+        EAN13CodeBuilder bb = new EAN13CodeBuilder("124958761310");
+        textView.setText(bb.getCode());
+        return view;
     }
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
