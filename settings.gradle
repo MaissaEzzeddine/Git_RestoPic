@@ -1,1 +1,1 @@
-include ':app', ':facebook', ':sdp-android', ':volley'
+include ':app', ':facebook', ':sdp-android'

@@ -101,8 +101,4 @@
         android:layout_below="@+id/account"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp" />
-
-
-
-
 </RelativeLayout>

@@ -42,24 +42,18 @@ public class LogInFragment extends Fragment  {
     private  ProfileTracker profileTracker;
     CallbackManager callbackManager;
     SessionManager session;
-    TextView tv1;
-
+    TextView title;
     String nom,prenom,email;
-
     private static final String NAME = "name";
     private static final String GENDER = "gender";
     private static final String EMAIL = "email";
     private static final String BIRTHDAY = "birthday";
-
     private static final String FIELDS = "fields";
-
     private static final String REQUEST_FIELDS = TextUtils.join(",", new String[]{NAME, GENDER, EMAIL, BIRTHDAY});
-
     private JSONObject user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
@@ -78,7 +72,6 @@ public class LogInFragment extends Fragment  {
             protected void onCurrentProfileChanged(
                     Profile oldProfile,
                     Profile currentProfile) {
-
             }
         };
     }
@@ -90,17 +83,14 @@ public class LogInFragment extends Fragment  {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-
         final View view = inflater.inflate(R.layout.login_layout, container, false);
         TextView forgotPassword = (TextView) view.findViewById(R.id.forgot_password);
         forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         inputEmail = (EditText) view.findViewById(R.id.email);
         inputPassword = (EditText) view.findViewById(R.id.login_password);
-        tv1=(TextView)view.findViewById(R.id.restopic);
-
+        title=(TextView)view.findViewById(R.id.restopic);
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(), "font/font.ttf");
-        tv1.setTypeface(face);
-
+        title.setTypeface(face);
         Button ButtonLogin = (Button) view.findViewById(R.id.connect);
         ButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +98,6 @@ public class LogInFragment extends Fragment  {
                 new Connect().execute();
             }
         });
-
         LoginButton ButtonFacebook = (LoginButton) view.findViewById(R.id.facebook);
         ButtonFacebook.setReadPermissions("user_friends", "email", "user_birthday");
         ButtonFacebook.setFragment(this);
@@ -130,7 +119,6 @@ public class LogInFragment extends Fragment  {
                 Toast.makeText(getActivity(), "Login error", Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(), exception.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
-
         });
         return view;
     }
@@ -155,8 +143,6 @@ public class LogInFragment extends Fragment  {
                     session.createLoginSession("CompteFacebook");
                     getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
                 }
-                else {
-                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -167,23 +153,21 @@ public class LogInFragment extends Fragment  {
     }
 
     class Connect extends AsyncTask<String, String, String> {
-                        @Override
-                        protected void onPreExecute() {
-                            super.onPreExecute();
-                        }
-
-                        protected String doInBackground(String... args) {
-                            String email = inputEmail.getText().toString();
-                            String password = inputPassword.getText().toString();
-                            UserFunctions uf=new UserFunctions();
-                            JSONObject json = uf.connexion(email,password);
-                            try {
-                                Boolean fail = json.getBoolean(TAG_FAIL);
-                                int id = json.getInt("id");
-                                if (!fail) {
-                                    session.createLoginSession(""+id);
-                                    getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
-                } else {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        protected String doInBackground(String... args) {
+            String email = inputEmail.getText().toString();
+            String password = inputPassword.getText().toString();
+            UserFunctions uf=new UserFunctions();
+            JSONObject json = uf.connexion(email,password);
+            try {
+                Boolean fail = json.getBoolean(TAG_FAIL);
+                int id = json.getInt("id");
+                if (!fail) {
+                    session.createLoginSession(""+id);
+                    getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -217,8 +201,6 @@ public class LogInFragment extends Fragment  {
     public void onDestroy() {
         super.onDestroy();
     }
-
-
     private void fetchUserInfo() {
         final AccessToken accessToken = AccessToken.getCurrentAccessToken();
         if (accessToken != null) {

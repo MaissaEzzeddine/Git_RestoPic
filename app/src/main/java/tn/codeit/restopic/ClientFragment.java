@@ -16,16 +16,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.GridView;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -43,16 +42,21 @@ public class ClientFragment extends Fragment {
     SessionManager session;
     int code = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG_PICTURES = "pictures";
+    private static final String TAG_URL = "url";
+    private static final String TAG_DATE = "date_de_prise";
+
+    JSONArray pictures = null;
     Uri fileUri ;
-    int id;
-    String timeStamp ,  CurrentPhotoPath ;
-    private static String url_getpicture = "http://restopic.16mb.com/RestoPic/v1/getpicture" ;
+    int id ;
+    String timeStampName , timeStamp , CurrentPhotoPath, url , date , name;
+    private static String url_getpicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
-    private static final String TAG_URL = "url";
-    ImageView picture ;
-    String url_picture;
-    //GridLayout gridLayout ;
+    JSONObject json ;
+    private GridView grid;
+    private String[] urls ;
+    private String[] dates ;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -60,96 +64,61 @@ public class ClientFragment extends Fragment {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
-        String name = session.getName() ;
+        name = session.getName() ;
         id = Integer.parseInt(name);
         setHasOptionsMenu(true);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
         View view=inflater.inflate(R.layout.client_layout, container, false) ;
-        picture = (ImageView) view.findViewById(R.id.picture);
+        grid = ( GridView) view.findViewById(R.id.grid);
         new GetPicture().execute() ;
-
-        /*gridLayout = (GridLayout) view.findViewById(R.id.grid);
-
-        gridLayout.removeAllViews();
-
-        int total = 4;
-        int column = 2;
-        int row = total / column;
-        gridLayout.setColumnCount(column);
-        gridLayout.setRowCount(row + 1);
-        for (int i = 0, c = 1, r = 1; i < total; i++, c++) {
-            if (c == column) {
-                c = 0;
-                r++;
-            }
-            ImageView oImageView = new ImageView(getActivity());
-            oImageView.setImageResource(R.drawable.ic_launcher);
-
-
-            GridLayout.Spec rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 1);
-            GridLayout.Spec colspan = GridLayout.spec(GridLayout.UNDEFINED, 1);
-
-            oImageView.setLayoutParams(new GridLayout.LayoutParams(rowSpan, colspan));
-
-            if (r == 0 && c == 0) {
-                Log.e("", "spec");
-                colspan = GridLayout.spec(GridLayout.UNDEFINED, 2);
-                rowSpan = GridLayout.spec(GridLayout.UNDEFINED, 2);
-            }
-            GridLayout.LayoutParams gridParam = new GridLayout.LayoutParams(rowSpan, colspan);
-            gridLayout.addView(oImageView, gridParam);
-
-        }*/
-
         return view;
     }
-
     class GetPicture extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
-            String id = "70" ;
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("picture_id", id));
-            JSONObject json = jsonParser.makeHttpRequest(url_getpicture, "POST", params);
+            params.add(new BasicNameValuePair("user_id", name));
+            json = jsonParser.makeHttpRequest(url_getpicture, "POST", params);
             Log.e("Entity Response", json.toString());
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
-                     url_picture = json.getString(TAG_URL);
-                } else {
+                    pictures = json.getJSONArray(TAG_PICTURES);
+                    urls = new String[pictures.length()] ;
+                    dates = new String[pictures.length()] ;
+                    for (int j = 0; j < pictures.length(); j++) {
+                        JSONObject s = null;
+                        try {
+                            s = pictures.getJSONObject(j);
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        }
+                        url = s.getString(TAG_URL);
+                        urls[j] = new String(url) ;
+
+                        date = s.getString(TAG_DATE);
+                        dates[j] = new String(date) ;
+                    }
+                    if(urls!=null) {
+                        grid.setAdapter(new ImageListAdapter(getActivity(), urls , dates));
+                    }
+
                 }
-            }
-                catch (JSONException e) {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return null;
-            }
-        protected void onPostExecute(String file_url) {
-            Log.e("url",url_picture);
-            Picasso.with(getActivity()).load(url_picture).fit().into(picture, new Callback() {
-                @Override
-                public void onSuccess() {
-                    // do something
-                }
-
-                @Override
-                public void onError() {
-                }
-            });
-
         }
     }
-
-
-
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
@@ -158,22 +127,17 @@ public class ClientFragment extends Fragment {
         actionBar.setTitle("Accueil");
         actionBar.show();
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
     {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_main, menu);
     }
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-            case R.id.liste_coupons:
-                getFragmentManager().beginTransaction().replace(R.id.container, new ListeCouponsFragment()).addToBackStack(null).commit();
-                return true;
+
             case R.id.deconnexion:
                 logOut();
                 session.logoutUser();
@@ -198,14 +162,13 @@ public class ClientFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
-
     private File createPicture() throws IOException
     {
-        // Create an image file name
-        timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+        timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        timeStampName = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
         String user_id = "" + id +"_" ;
         File storageDir = Environment.getExternalStorageDirectory()  ;
-        File image = new File(storageDir + "/" + user_id + timeStamp + ".jpg");
+        File image = new File(storageDir + "/" + user_id + timeStampName + ".jpg");
         // Save a file: path for use with ACTION_VIEW intents
         CurrentPhotoPath = image.getAbsolutePath();
         Log.e(TAG, "photo path = " + CurrentPhotoPath);

@@ -10,14 +10,12 @@ import java.util.List;
 public class UserFunctions {
 
     JSONParser jsonParser = new JSONParser();
-    private static String NewPasswordURL = "http://restopic.16mb.com/RestoPic/v1/nouveau";
-    private static String codeURL = "http://restopic.16mb.com/RestoPic/v1/code";
-    private static String url_create_account = "http://restopic.16mb.com/RestoPic/v1/register";
-    private static String url_create_account_facebook = "http://restopic.16mb.com/RestoPic/v1/register_facebook";
-    private static String ForgotPasswordURL = "http://restopic.16mb.com/RestoPic/v1/forpass";
-    private static String LoginUrl = "http://restopic.16mb.com/RestoPic/v1/login";
-    private static String getPicture_url = "http://restopic.16mb.com/RestoPic/v1/getpicture" ;
-
+    private static String NewPasswordURL = "http://restopic.esy.es/RestoPic/v1/nouveau";
+    private static String codeURL = "http://restopic.esy.es/RestoPic/v1/code";
+    private static String url_create_account = "http://restopic.esy.es/RestoPic/v1/register";
+    private static String url_create_account_facebook = "http://restopic.esy.es/RestoPic/v1/register_facebook";
+    private static String ForgotPasswordURL = "http://restopic.esy.es/RestoPic/v1/forpass";
+    private static String LoginUrl = "http://restopic.esy.es/RestoPic/v1/login";
 
     public JSONObject  changePassword ( String email ,String password) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -75,11 +73,4 @@ public class UserFunctions {
         return json;
     }
 
-    public JSONObject getPicture(String id ){
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("id", id));
-        JSONObject json = jsonParser.makeHttpRequest(getPicture_url, "POST", params);
-        Log.e("Entity Response", json.toString());
-        return json;
-    }
 }

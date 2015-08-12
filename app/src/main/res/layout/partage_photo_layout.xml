@@ -34,8 +34,4 @@
         android:layout_below="@+id/text_partage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_20sdp" />
-
-
-
-
 </RelativeLayout>

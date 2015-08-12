@@ -17,10 +17,10 @@ public class SplashScreen extends Activity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
-        TextView tv1=(TextView) findViewById(R.id.restopic);
+        TextView Logo=(TextView) findViewById(R.id.restopic);
 
         Typeface face= Typeface.createFromAsset(getAssets(), "font/font.ttf");
-        tv1.setTypeface(face);
+        Logo.setTypeface(face);
         TimerTask task = new TimerTask() {
             @Override
             public void run() {

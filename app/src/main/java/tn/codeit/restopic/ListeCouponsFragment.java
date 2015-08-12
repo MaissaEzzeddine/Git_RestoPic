@@ -4,24 +4,54 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.Profile;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import tn.codeit.restopic.webservice.JSONParser;
+
 public class ListeCouponsFragment extends Fragment {
     int code = 1;
     SessionManager session ;
+    private static final String TAG_ID_PHOTO = "id_photo";
+    private static final String TAG_ID_USER = "id_user";
+    private static final String TAG_ID_COUPON = "id_coupon";
+    private static final String TAG_DATE_ACTIVATION = "date_activation";
+    private static final String TAG_DATE_EXPIRATION = "date_expiration";
+
+    private static String url_getcoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
+    JSONParser jsonParser = new JSONParser();
+    private static final String TAG_FAIL = "error";
+    JSONObject json ;
+    String id_code , id_photo , id_user , id_coupon , date_activation , date_expiration ;
+    TextView textCode , textDate , textE ;
+    ImageView status ;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,21 +60,77 @@ public class ListeCouponsFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.liste_coupons_layout,  container, false);
-        TextView textView = (TextView) view.findViewById(R.id.codebarre);
-        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "font/code.ttf");
-        textView.setTypeface(font);
+        View view =  inflater.inflate(R.layout.liste_coupons_layout, container, false);
 
-        // generate barcode string
-        EAN13CodeBuilder bb = new EAN13CodeBuilder("124958761310");
-        textView.setText(bb.getCode());
+        id_code = getArguments().getString("code");
+        textCode = (TextView) view.findViewById(R.id.codebarre);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "font/code.ttf");
+        textCode.setTypeface(font);
+
+        textDate = (TextView) view.findViewById(R.id.date);
+        textE = (TextView) view.findViewById(R.id.expiration);
+        status = (ImageView) view.findViewById(R.id.status);
+
+        new GetCoupon().execute() ;
         return view;
+    }
+
+    class GetCoupon extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        protected String doInBackground(String... args) {
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("url", id_code));
+            json = jsonParser.makeHttpRequest(url_getcoupon, "POST", params);
+            Log.e("Entity Response", json.toString());
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
+            try {
+                Boolean fail = json.getBoolean(TAG_FAIL);
+                if (!fail) {
+
+                    id_photo = json.getString(TAG_ID_PHOTO);
+                    id_user = json.getString(TAG_ID_USER);
+                    id_coupon = json.getString(TAG_ID_COUPON);
+                    date_activation = json.getString(TAG_DATE_ACTIVATION);
+                    date_expiration = json.getString(TAG_DATE_EXPIRATION);
+
+                    String pattern = "dd-MM-yyyy HH:mm:ss";
+                    SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                    Date one = dateFormat.parse(date_expiration);
+                    Date two = dateFormat.parse(date_activation);
+
+                    if (one.compareTo(two) > 0 )
+                    {   status.setImageResource(R.drawable.circle_green);
+                        Log.e("status" , "actif encore") ; }
+                    else{
+                        status.setImageResource(R.drawable.circle_red);
+                         Log.e("status" , "desactivé") ;
+                    }
+                    String ids = id_user+id_photo+id_coupon ;
+                    String codeInput = "1234" + ids + "9876" ;
+
+                    EAN13CodeBuilder code = new EAN13CodeBuilder(codeInput);
+                    textCode.setText(code.getCode());
+                    textDate.setText(date_activation);
+                    textE.setText(date_expiration);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("Liste des coupons");
+        actionBar.setTitle("Details de la photo");
         actionBar.show();
     }
     @Override
@@ -84,7 +170,6 @@ public class ListeCouponsFragment extends Fragment {
             getFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();
         }
     }
-
     public void logOut() {
         AccessToken.setCurrentAccessToken(null);
         Profile.setCurrentProfile(null);

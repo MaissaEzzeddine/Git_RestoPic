@@ -40,7 +40,7 @@ public class PartagePhotoFragment extends Fragment {
     int code = 1;
     SessionManager session;
     private String filePath = null;
-    private static String url_upload = "http://restopic.16mb.com/RestoPic/pictures/upload.php";
+    private static String url_upload = "http://restopic.esy.es/RestoPic/pictures/upload.php";
     Bitmap bitmap;
     private static final String TAG = MainActivity.class.getSimpleName();
     String CurrentPhotoPath;
@@ -63,7 +63,6 @@ public class PartagePhotoFragment extends Fragment {
         isImage = getArguments().getBoolean("isImage");
         id = getArguments().getInt("id");
         user_id = String.valueOf(id);
-
         picture = (ImageView) view.findViewById(R.id.picture);
         if (filePath != null) {
             previewPicture(isImage);
@@ -131,7 +130,6 @@ public class PartagePhotoFragment extends Fragment {
     }
 
     private void previewPicture(boolean isImage) {
-        // Checking whether captured media is image or video
         if (isImage) {
             picture.setVisibility(View.VISIBLE);
             BitmapFactory.Options options = new BitmapFactory.Options();
@@ -153,16 +151,13 @@ public class PartagePhotoFragment extends Fragment {
             int i=uploadFile(filePath);
             return "response:"+i ;
         }
-
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
         }
-
     }
 
     public int uploadFile(final String sourceFileUri) {
-
         String fileName = sourceFileUri;
         int serverResponseCode = 0 ;
         HttpURLConnection conn = null;
@@ -193,14 +188,23 @@ public class PartagePhotoFragment extends Fragment {
                 conn.setRequestProperty("uploaded_file", fileName);
 
                 dos = new DataOutputStream(conn.getOutputStream());
-                dos.writeBytes(twoHyphens + boundary + lineEnd);
 
+                dos.writeBytes(twoHyphens + boundary + lineEnd);
                 dos.writeBytes("Content-Disposition: form-data; name=\"user_id\"" + lineEnd);
                 //dos.writeBytes("Content-Type: text/plain; charset=UTF-8" + lineEnd);
                 //dos.writeBytes("Content-Length: " + name.length() + lineEnd);
                 dos.writeBytes(lineEnd);
                 dos.writeBytes(user_id); // mobile_no is String variable
                 dos.writeBytes(lineEnd);
+
+                dos.writeBytes(twoHyphens + boundary + lineEnd);
+                dos.writeBytes("Content-Disposition: form-data; name=\"date_de_prise\"" + lineEnd);
+                //dos.writeBytes("Content-Type: text/plain; charset=UTF-8" + lineEnd);
+                //dos.writeBytes("Content-Length: " + name.length() + lineEnd);
+                dos.writeBytes(lineEnd);
+                dos.writeBytes(timeStamp); // mobile_no is String variable
+                dos.writeBytes(lineEnd);
+
 
                 //Adding Parameter media file(audio,video and image)
                 dos.writeBytes(twoHyphens + boundary + lineEnd);

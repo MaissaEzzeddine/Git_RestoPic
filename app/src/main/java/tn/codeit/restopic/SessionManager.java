@@ -29,7 +29,6 @@ public class SessionManager {
 
     public boolean checkLogin(){
         return ( this.isLoggedIn() ) ;
-
     }
     public void logoutUser(){
         editor.clear();

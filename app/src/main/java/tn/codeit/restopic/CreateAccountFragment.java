@@ -18,16 +18,13 @@ import org.json.JSONObject;
 import tn.codeit.restopic.webservice.UserFunctions;
 
 public class CreateAccountFragment extends Fragment {
-
     EditText inputNom , inputPrenom , inputEmail , inputPass ;
     private static final String TAG_FAIL = "error";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.create_account_layout, container, false) ;
@@ -44,22 +41,17 @@ public class CreateAccountFragment extends Fragment {
         });
         return view;
     }
-
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
-        LayoutInflater mInflater = LayoutInflater.from(getActivity());
-
-        View mCustomView = mInflater.inflate(R.layout.custom_actionbar, null);
-        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
-        mTitleTextView.setText("Creation d'un compte");
-
-        ImageButton imageButton = (ImageButton) mCustomView.findViewById(R.id.imageButton);
+        LayoutInflater Inflater = LayoutInflater.from(getActivity());
+        View CustomView = Inflater.inflate(R.layout.custom_actionbar, null);
+        TextView TitleTextView = (TextView) CustomView.findViewById(R.id.title_text);
+        TitleTextView.setText("Creation d'un compte");
+        ImageButton imageButton = (ImageButton) CustomView.findViewById(R.id.imageButton);
         imageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -67,11 +59,9 @@ public class CreateAccountFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
             }
         });
-
-        actionBar.setCustomView(mCustomView);
+        actionBar.setCustomView(CustomView);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.show();
-
     }
 
     class CreateNewUser extends AsyncTask<String, String, String> {
@@ -90,7 +80,6 @@ public class CreateAccountFragment extends Fragment {
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
                     getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-                } else {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -100,6 +89,4 @@ public class CreateAccountFragment extends Fragment {
         protected void onPostExecute(String file_url) {
         }
     }
-
-
 }

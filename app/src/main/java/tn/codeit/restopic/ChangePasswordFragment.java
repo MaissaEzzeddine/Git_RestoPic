@@ -19,7 +19,7 @@ import tn.codeit.restopic.webservice.UserFunctions;
 
 public class ChangePasswordFragment extends Fragment {
 
-    Button continuer,cancel ;
+    Button continuer;
     EditText inputPassword ;
     private static final String TAG_Fail = "error";
 
@@ -31,7 +31,6 @@ public class ChangePasswordFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-
         final View view = inflater.inflate(R.layout.change_password_layout, container, false);
         inputPassword = (EditText) view.findViewById(R.id.reset_password);
         continuer = (Button) view.findViewById(R.id.continuer);
@@ -50,13 +49,11 @@ public class ChangePasswordFragment extends Fragment {
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
-        LayoutInflater mInflater = LayoutInflater.from(getActivity());
-
-        View mCustomView = mInflater.inflate(R.layout.custom_actionbar, null);
-        TextView mTitleTextView = (TextView) mCustomView.findViewById(R.id.title_text);
-        mTitleTextView.setText("reinitialiser le mot de passe");
-
-        ImageButton imageButton = (ImageButton) mCustomView
+        LayoutInflater Inflater = LayoutInflater.from(getActivity());
+        View CustomView = Inflater.inflate(R.layout.custom_actionbar, null);
+        TextView TitleTextView = (TextView) CustomView.findViewById(R.id.title_text);
+        TitleTextView.setText("reinitialiser le mot de passe");
+        ImageButton imageButton = (ImageButton) CustomView
                 .findViewById(R.id.imageButton);
         imageButton.setOnClickListener(new View.OnClickListener() {
 
@@ -65,13 +62,11 @@ public class ChangePasswordFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
             }
         });
-
-        actionBar.setCustomView(mCustomView);
+        actionBar.setCustomView(CustomView);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.show();    }
 
     class forgotPassword extends AsyncTask<String, String, String> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -85,8 +80,6 @@ public class ChangePasswordFragment extends Fragment {
                 Boolean fail = json.getBoolean(TAG_Fail);
                 if (!fail) {
                     getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-                } else {
-                    //
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -96,6 +89,4 @@ public class ChangePasswordFragment extends Fragment {
         protected void onPostExecute(String file_url) {
         }
     }
-
-
 }
