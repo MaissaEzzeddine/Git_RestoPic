@@ -36,7 +36,7 @@ public  class MainActivity extends AppCompatActivity  {
 
     SessionManager session;
     ViewPager Tab;
-    TabPagerAdapter TabAdapter;
+    TabsAdapter TabAdapter;
     ActionBar actionBar;
     int code = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -69,7 +69,7 @@ public  class MainActivity extends AppCompatActivity  {
 
 
             if (savedInstanceState == null) {
-                TabAdapter = new TabPagerAdapter(getSupportFragmentManager());
+                TabAdapter = new TabsAdapter(getSupportFragmentManager());
                 Tab = (ViewPager)findViewById(R.id.pager);
                 Tab.setOnPageChangeListener(
                         new ViewPager.SimpleOnPageChangeListener() {
@@ -101,7 +101,7 @@ public  class MainActivity extends AppCompatActivity  {
                 actionBar.addTab(actionBar.newTab().setText("Mes photos").setTabListener(tabListener));
                 actionBar.addTab(actionBar.newTab().setText("Toutes les photos").setTabListener(tabListener));
 
-                getSupportFragmentManager().beginTransaction().add(R.id.container, new MesPhotos()).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.container, new ClientFragment()).commit();
             }
         }
         this.registerReceiver(mBroadcastReceiver, new IntentFilter("start.fragment.action"));
@@ -114,9 +114,9 @@ public  class MainActivity extends AppCompatActivity  {
             String code = intent.getExtras().getString("code");
             Bundle bundle = new Bundle();
             bundle.putString( "code" , code);
-            ListeCouponsFragment listeCouponsFragment = new ListeCouponsFragment();
-            listeCouponsFragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, listeCouponsFragment).addToBackStack(null).commit();
+            CouponFragment couponFragment = new CouponFragment();
+            couponFragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, couponFragment).addToBackStack(null).commit();
         }
     };
 
@@ -126,7 +126,7 @@ public  class MainActivity extends AppCompatActivity  {
 
     public void ResetPassword (View view)
     {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new ResetPasswordFragment()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new ForgotPasswordFragment()).addToBackStack(null).commit();
     }
 
     @Override
@@ -142,6 +142,17 @@ public  class MainActivity extends AppCompatActivity  {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem item1 = menu.findItem(R.id.accueil);
+        item1.setVisible(false);
+
+        MenuItem item2 = menu.findItem(R.id.ok);
+        item2.setVisible(false);
         return true;
     }
 

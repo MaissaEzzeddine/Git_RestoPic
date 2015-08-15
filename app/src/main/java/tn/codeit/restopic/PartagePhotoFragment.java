@@ -69,7 +69,7 @@ public class PartagePhotoFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_partage, menu);
+        inflater.inflate(R.menu.menu, menu);
     }
 
     @Override
@@ -77,6 +77,10 @@ public class PartagePhotoFragment extends Fragment {
 
         MenuItem item1 = menu.findItem(R.id.capture);
         item1.setVisible(false);
+
+        MenuItem item2 = menu.findItem(R.id.accueil);
+        item2.setVisible(true);
+
     }
 
     @Override
