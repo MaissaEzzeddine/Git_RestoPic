@@ -17,7 +17,7 @@ public class SplashScreen extends Activity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
-        TextView Logo=(TextView) findViewById(R.id.restopic);
+        TextView Logo=(TextView) findViewById(R.id.app_name);
 
         Typeface face= Typeface.createFromAsset(getAssets(), "font/font.ttf");
         Logo.setTypeface(face);

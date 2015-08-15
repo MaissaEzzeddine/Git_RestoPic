@@ -10,16 +10,17 @@
     android:background="@color/BackgroundColorScreen">
 
     <GridView
-        android:id="@+id/grid"
+        android:id="@+id/grid_mes_photos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:numColumns="2"
         android:scrollbarStyle="outsideInset"
         android:smoothScrollbar="true"
-        android:verticalSpacing="10dp"
-        android:paddingBottom="50dp"
-        android:paddingTop="10dp"
+        android:verticalSpacing="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_50sdp"
+        android:paddingTop="@dimen/_10sdp"
         android:background="@color/BackgroundColorScreen">
     </GridView>
+
 </RelativeLayout>

@@ -19,10 +19,10 @@ import org.json.JSONObject;
 import tn.codeit.restopic.webservice.UserFunctions;
 
 public class CreateAccountFragment extends Fragment {
+
     EditText inputNom , inputPrenom , inputEmail , inputPass ;
     private static final String TAG_FAIL = "error";
     ActionBar actionBar;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,15 +97,12 @@ public class CreateAccountFragment extends Fragment {
         item1.setVisible(false);
         item2.setVisible(false);
         item3.setVisible(false);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-
-
             case android.R.id.home:
                 getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
                 return true;

@@ -72,12 +72,7 @@ public class EAN13CodeBuilder {
         }
         if( firstFlag == 3 )
         {
-            leftCode = "&!"+leftString.substring(0,1)
-                    +leftString.substring(1,2)
-                    +DigitToUpperCase(leftString.substring(2,3))
-                    +DigitToUpperCase(leftString.substring(3,4))
-                    +DigitToUpperCase(leftString.substring(4,5))
-                    +leftString.substring(5);
+            leftCode = "&!"+leftString.substring(0,1) +leftString.substring(1,2) +DigitToUpperCase(leftString.substring(2,3)) +DigitToUpperCase(leftString.substring(3,4)) +DigitToUpperCase(leftString.substring(4,5)) +leftString.substring(5);
         }
         if( firstFlag == 4 )
         {

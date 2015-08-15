@@ -39,7 +39,7 @@ public class AllPhotosFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
         View view=inflater.inflate(R.layout.all_photos_layout, container, false) ;
-        grid = (GridView) view.findViewById(R.id.grid2);
+        grid = (GridView) view.findViewById(R.id.grid_all_photos);
         new AllPictures().execute() ;
         return view;
     }

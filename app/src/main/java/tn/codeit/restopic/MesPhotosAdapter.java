@@ -19,7 +19,6 @@ public class MesPhotosAdapter extends BaseAdapter {
     private String[] imgPic;
     private String[] imgDate;
 
-
     public MesPhotosAdapter(Context c, String[] thePic , String[] theDate)
     {
         context = c;

@@ -97,15 +97,12 @@ public class CodeFragment extends Fragment {
         item1.setVisible(false);
         item2.setVisible(false);
         item3.setVisible(false);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-
-
             case android.R.id.home:
                 getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
                 return true;

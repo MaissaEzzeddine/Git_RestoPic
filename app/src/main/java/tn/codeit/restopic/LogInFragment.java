@@ -90,18 +90,18 @@ public class LogInFragment extends Fragment  {
         forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         inputEmail = (EditText) view.findViewById(R.id.email);
         inputPassword = (EditText) view.findViewById(R.id.login_password);
-        title=(TextView)view.findViewById(R.id.restopic);
+        title=(TextView)view.findViewById(R.id.app_name);
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(), "font/font.ttf");
         title.setTypeface(face);
 
-        Button ButtonLogin = (Button) view.findViewById(R.id.connect);
+        Button ButtonLogin = (Button) view.findViewById(R.id.button_connect);
         ButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new Connect().execute();
             }
         });
-        LoginButton ButtonFacebook = (LoginButton) view.findViewById(R.id.facebook);
+        LoginButton ButtonFacebook = (LoginButton) view.findViewById(R.id.button_facebook);
         ButtonFacebook.setReadPermissions("user_friends", "email", "user_birthday");
         ButtonFacebook.setFragment(this);
 

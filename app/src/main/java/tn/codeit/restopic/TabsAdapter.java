@@ -21,10 +21,8 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
         }
         return null;
     }
-
     @Override
     public int getCount() {
         return 2;
     }
-
 }

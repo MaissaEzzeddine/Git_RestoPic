@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="RestoPic"
         android:textColor="@color/white"
-        android:id="@+id/restopic"
+        android:id="@+id/app_name"
         android:shadowColor="#00ccff"
         android:shadowRadius="1.5"
         android:shadowDx="1"
@@ -27,7 +27,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/app_logo"
         android:src="@drawable/logo_splash"
         android:layout_below="@+id/restopic"
         android:layout_centerInParent="true" />

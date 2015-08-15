@@ -48,7 +48,7 @@ public class ChangePasswordFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("Reinitiliser le mot de passe");
+        actionBar.setTitle("Reinitialiser le mot de passe");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
     }
@@ -93,15 +93,12 @@ public class ChangePasswordFragment extends Fragment {
         item1.setVisible(false);
         item2.setVisible(false);
         item3.setVisible(false);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-
-
             case android.R.id.home:
                 getFragmentManager().beginTransaction().replace(R.id.container, new CodeFragment()).addToBackStack(null).commit();
                 return true;

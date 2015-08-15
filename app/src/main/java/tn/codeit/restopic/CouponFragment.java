@@ -41,7 +41,6 @@ public class CouponFragment extends Fragment {
     private static final String TAG_ID_COUPON = "id_coupon";
     private static final String TAG_DATE_ACTIVATION = "date_activation";
     private static final String TAG_DATE_EXPIRATION = "date_expiration";
-
     private static String url_getcoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
@@ -51,8 +50,6 @@ public class CouponFragment extends Fragment {
     ImageView status ;
     ViewPager Tab;
     ActionBar actionBar;
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,17 +58,15 @@ public class CouponFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.coupon_layout, container, false);
 
+        View view =  inflater.inflate(R.layout.coupon_layout, container, false);
         id_code = getArguments().getString("code");
         textCode = (TextView) view.findViewById(R.id.codebarre);
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "font/code.ttf");
         textCode.setTypeface(font);
-
         textDate = (TextView) view.findViewById(R.id.date);
         textE = (TextView) view.findViewById(R.id.expiration);
         status = (ImageView) view.findViewById(R.id.status);
-
         new GetCoupon().execute() ;
         return view;
     }
@@ -162,7 +157,6 @@ public class CouponFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch (item.getItemId()) {
-
             case android.R.id.home:
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);

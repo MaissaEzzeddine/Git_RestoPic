@@ -24,6 +24,7 @@ public class ForgotPasswordFragment extends Fragment {
     private static final String TAG_FAIL = "error";
     EditText inputEmail;
     Button resetPassword ;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -20,7 +20,6 @@ public class AllPhotosAdapter extends BaseAdapter {
     private String[] imgPic;
     private String[] imgDate;
 
-
     public AllPhotosAdapter(Context c, String[] thePic , String[] theDate)
     {
         context = c;
@@ -79,4 +78,3 @@ public class AllPhotosAdapter extends BaseAdapter {
         return layout;
     }
 }
-

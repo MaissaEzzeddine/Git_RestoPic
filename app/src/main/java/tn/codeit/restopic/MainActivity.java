@@ -65,9 +65,6 @@ public  class MainActivity extends AppCompatActivity  {
         }
 
         else {
-
-
-
             if (savedInstanceState == null) {
                 TabAdapter = new TabsAdapter(getSupportFragmentManager());
                 Tab = (ViewPager)findViewById(R.id.pager);

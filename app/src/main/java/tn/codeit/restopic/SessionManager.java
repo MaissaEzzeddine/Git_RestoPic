@@ -34,8 +34,10 @@ public class SessionManager {
         editor.clear();
         editor.commit();
     }
+
     public boolean isLoggedIn(){
         return preferences.getBoolean(IS_LOGIN, false);
     }
     public String getName () { return  preferences.getString(KEY_NAME , "empty") ; }
+
 }

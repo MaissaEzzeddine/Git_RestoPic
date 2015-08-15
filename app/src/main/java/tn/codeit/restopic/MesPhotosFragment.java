@@ -65,7 +65,7 @@ public class MesPhotosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
         View view=inflater.inflate(R.layout.mes_photos_layout, container, false) ;
-        grid = ( GridView) view.findViewById(R.id.grid);
+        grid = ( GridView) view.findViewById(R.id.grid_mes_photos);
         new GetPicture().execute() ;
         return view;
     }

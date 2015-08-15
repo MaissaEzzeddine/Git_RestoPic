@@ -77,7 +77,6 @@ public class PartagePhotoFragment extends Fragment {
 
         MenuItem item1 = menu.findItem(R.id.capture);
         item1.setVisible(false);
-
         MenuItem item2 = menu.findItem(R.id.accueil);
         item2.setVisible(true);
 
@@ -86,18 +85,15 @@ public class PartagePhotoFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
             case R.id.accueil:
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 return true;
-
             case R.id.ok:
                 new UploadFileToServer().execute();
                 Intent i = new Intent(getActivity(), MainActivity.class);
                 startActivity(i);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
