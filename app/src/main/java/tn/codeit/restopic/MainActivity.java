@@ -38,12 +38,11 @@ public  class MainActivity extends AppCompatActivity  {
     ViewPager Tab;
     TabPagerAdapter TabAdapter;
     ActionBar actionBar;
-
     int code = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
     Uri fileUri ;
     int id ;
-    String timeStampName , timeStamp , CurrentPhotoPath;
+    String timeStampName , timeStamp , CurrentPhotoPath , name;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -54,6 +53,11 @@ public  class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         session = new SessionManager(getApplicationContext());
+        name = session.getName() ;
+        if (name != "empty") {
+            id = Integer.parseInt(name);
+        }
+
         if (!session.checkLogin()) {
             if (savedInstanceState == null) {
                 getSupportFragmentManager().beginTransaction().add(R.id.container, new LogInFragment()).commit();
@@ -61,6 +65,8 @@ public  class MainActivity extends AppCompatActivity  {
         }
 
         else {
+
+
 
             if (savedInstanceState == null) {
                 TabAdapter = new TabPagerAdapter(getSupportFragmentManager());

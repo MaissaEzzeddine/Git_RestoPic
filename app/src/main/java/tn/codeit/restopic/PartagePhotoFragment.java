@@ -76,10 +76,7 @@ public class PartagePhotoFragment extends Fragment {
     public void onPrepareOptionsMenu(Menu menu) {
 
         MenuItem item1 = menu.findItem(R.id.capture);
-        MenuItem item3 = menu.findItem(R.id.accueil);
         item1.setVisible(false);
-        item3.setVisible(true);
-
     }
 
     @Override
@@ -93,7 +90,8 @@ public class PartagePhotoFragment extends Fragment {
 
             case R.id.ok:
                 new UploadFileToServer().execute();
-                getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
                 return true;
 
             default:

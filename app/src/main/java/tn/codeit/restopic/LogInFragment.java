@@ -85,6 +85,7 @@ public class LogInFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.login_layout, container, false);
+
         TextView forgotPassword = (TextView) view.findViewById(R.id.forgot_password);
         forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         inputEmail = (EditText) view.findViewById(R.id.email);
@@ -92,6 +93,7 @@ public class LogInFragment extends Fragment  {
         title=(TextView)view.findViewById(R.id.restopic);
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(), "font/font.ttf");
         title.setTypeface(face);
+
         Button ButtonLogin = (Button) view.findViewById(R.id.connect);
         ButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +104,7 @@ public class LogInFragment extends Fragment  {
         LoginButton ButtonFacebook = (LoginButton) view.findViewById(R.id.facebook);
         ButtonFacebook.setReadPermissions("user_friends", "email", "user_birthday");
         ButtonFacebook.setFragment(this);
+
         ButtonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -143,7 +146,8 @@ public class LogInFragment extends Fragment  {
                 int id = json.getInt("id");
                 if (!fail) {
                     session.createLoginSession(""+id);
-                    getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

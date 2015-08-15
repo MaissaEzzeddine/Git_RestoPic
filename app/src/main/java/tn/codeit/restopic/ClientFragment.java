@@ -55,8 +55,9 @@ public class ClientFragment extends Fragment {
         session = new SessionManager(getActivity().getApplicationContext());
         name = session.getName() ;
         if (name != "empty") {
-        id = Integer.parseInt(name);
+            id = Integer.parseInt(name);
         }
+
         setHasOptionsMenu(true);
 
     }
@@ -68,8 +69,6 @@ public class ClientFragment extends Fragment {
         new GetPicture().execute() ;
         return view;
     }
-
-
 
     class GetPicture extends AsyncTask<String, String, String> {
         @Override

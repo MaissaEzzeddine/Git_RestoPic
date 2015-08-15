@@ -35,8 +35,6 @@ public class AllPhotos extends Fragment{
     JSONArray pictures = null;
     String  url , date ;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
