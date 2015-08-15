@@ -1,7 +1,6 @@
 package tn.codeit.restopic;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +9,19 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-public class ImageListAdapter extends BaseAdapter {
+
+public class ImageA extends BaseAdapter {
 
     private Context context;
     private String[] imgPic;
     private String[] imgDate;
 
 
-    public ImageListAdapter(Context c, String[] thePic , String[] theDate)
+    public ImageA(Context c, String[] thePic , String[] theDate)
     {
         context = c;
         imgPic = thePic;
@@ -69,15 +70,6 @@ public class ImageListAdapter extends BaseAdapter {
             }
             @Override
             public void onError() {
-            }
-        });
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent("start.fragment.action");
-                intent.putExtra("code",imgPic[position] );
-                context.sendBroadcast(intent);
             }
         });
 

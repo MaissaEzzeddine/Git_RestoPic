@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,23 +48,8 @@ public class CodeFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
-        LayoutInflater Inflater = LayoutInflater.from(getActivity());
-        View CustomView = Inflater.inflate(R.layout.custom_actionbar, null);
-        TextView TitleTextView = (TextView) CustomView.findViewById(R.id.title_text);
-        TitleTextView.setText("reinitialiser le mot de passe");
-        ImageButton imageButton = (ImageButton) CustomView
-                .findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-            }
-        });
-        actionBar.setCustomView(CustomView);
-        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setTitle("Reinitiliser le mot de passe");
+        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
     }
 
@@ -92,6 +78,39 @@ public class CodeFragment extends Fragment {
             return null;
         }
         protected void onPostExecute(String file_url) {
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem item1 = menu.findItem(R.id.capture);
+        MenuItem item2 = menu.findItem(R.id.deconnexion);
+        MenuItem item3 = menu.findItem(R.id.aide);
+        item1.setVisible(false);
+        item2.setVisible(false);
+        item3.setVisible(false);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+
+
+            case android.R.id.home:
+                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

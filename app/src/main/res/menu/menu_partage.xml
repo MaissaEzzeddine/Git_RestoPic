@@ -4,29 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item android:id="@+id/capture"
-        android:title="+"
-        android:icon="@drawable/plus"
-        app:showAsAction="always" />
 
     <item android:id="@+id/ok"
         android:title="Ok"
         android:icon="@drawable/check"
         app:showAsAction="always" />
 
-    <item android:id="@+id/accueil"
-        android:title="Accueil"
-        app:showAsAction="never" />
     <item
-        android:id="@+id/liste_coupons"
-        android:title="Liste des coupons"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/deconnexion"
-        android:title="Se déconnecter"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/aide"
+        android:id="@+id/accueil"
         android:title="Aide"
         app:showAsAction="never"/>
+
+
 </menu>

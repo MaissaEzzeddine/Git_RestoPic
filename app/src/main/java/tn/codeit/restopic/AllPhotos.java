@@ -1,20 +1,15 @@
 package tn.codeit.restopic;
 
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.facebook.FacebookSdk;
-
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,62 +19,41 @@ import java.util.List;
 
 import tn.codeit.restopic.webservice.JSONParser;
 
+public class AllPhotos extends Fragment{
 
-@SuppressWarnings("ALL")
-public class ClientFragment extends Fragment {
-
-    SessionManager session;
-    int code = 1;
+    GridView grid ;
+    private static String url_allpictures = "http://restopic.esy.es/RestoPic/pictures/allpictures.php" ;
+    JSONParser jsonParser = new JSONParser();
+    private static final String TAG_FAIL = "error";
+    JSONObject json ;
+    private String[] urls ;
+    private String[] dates ;
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String TAG_PICTURES = "pictures";
     private static final String TAG_URL = "url";
     private static final String TAG_DATE = "date_de_prise";
-
     JSONArray pictures = null;
-    Uri fileUri ;
-    int id ;
-    String timeStampName , timeStamp , CurrentPhotoPath, url , date , name;
-    private static String url_getpicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
-    JSONParser jsonParser = new JSONParser();
-    private static final String TAG_FAIL = "error";
-    JSONObject json ;
-    private GridView grid;
-    private String[] urls ;
-    private String[] dates ;
+    String  url , date ;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
-        session = new SessionManager(getActivity().getApplicationContext());
-        name = session.getName() ;
-        if (name != "empty") {
-        id = Integer.parseInt(name);
-        }
-        setHasOptionsMenu(true);
 
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
-        View view=inflater.inflate(R.layout.client_layout, container, false) ;
-        grid = ( GridView) view.findViewById(R.id.grid);
-        new GetPicture().execute() ;
+        View view=inflater.inflate(R.layout.all_photos_layout, container, false) ;
+        grid = (GridView) view.findViewById(R.id.grid2);
+        new AllPictures().execute() ;
         return view;
     }
 
-
-
-    class GetPicture extends AsyncTask<String, String, String> {
+    class AllPictures extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("user_id", name));
-            json = jsonParser.makeHttpRequest(url_getpicture, "POST", params);
+            json = jsonParser.makeHttpRequest(url_allpictures, "POST", params);
             Log.e("Entity Response", json.toString());
             return null;
         }
@@ -105,7 +79,7 @@ public class ClientFragment extends Fragment {
                         dates[j] = new String(date) ;
                     }
                     if(urls!=null) {
-                        grid.setAdapter(new ImageListAdapter(getActivity(), urls , dates));
+                        grid.setAdapter(new ImageA(getActivity(), urls , dates));
                     }
                 }
             } catch (JSONException e) {
@@ -113,14 +87,4 @@ public class ClientFragment extends Fragment {
             }
         }
     }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.show();
-    }
-
 }

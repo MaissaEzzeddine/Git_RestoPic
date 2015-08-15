@@ -6,8 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,9 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.facebook.AccessToken;
-import com.facebook.Profile;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -35,6 +32,7 @@ import java.util.List;
 
 import tn.codeit.restopic.webservice.JSONParser;
 
+@SuppressWarnings("ALL")
 public class ListeCouponsFragment extends Fragment {
     int code = 1;
     SessionManager session ;
@@ -51,6 +49,9 @@ public class ListeCouponsFragment extends Fragment {
     String id_code , id_photo , id_user , id_coupon , date_activation , date_expiration ;
     TextView textCode , textDate , textE ;
     ImageView status ;
+    ViewPager Tab;
+    ActionBar actionBar;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,16 @@ public class ListeCouponsFragment extends Fragment {
 
         new GetCoupon().execute() ;
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        actionBar=((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setTitle("Details de la photo");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.show();
     }
 
     class GetCoupon extends AsyncTask<String, String, String> {
@@ -109,7 +120,7 @@ public class ListeCouponsFragment extends Fragment {
                         Log.e("status" , "actif encore") ; }
                     else{
                         status.setImageResource(R.drawable.circle_red);
-                         Log.e("status" , "desactivé") ;
+                        Log.e("status" , "desactive") ;
                     }
                     String ids = id_user+id_photo+id_coupon ;
                     String codeInput = "1234" + ids + "9876" ;
@@ -126,40 +137,8 @@ public class ListeCouponsFragment extends Fragment {
             }
         }
     }
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle("Details de la photo");
-        actionBar.show();
-    }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_coupons, menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.Accueil:
-                getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
-                return true;
-            case R.id.deconnexion:
-                logOut();
-                session.logoutUser();
-                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-                return true;
-            case R.id.capture:
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (i.resolveActivity(getActivity().getPackageManager()) != null) {
-                    startActivityForResult(i, code);
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-    public  void  onActivityResult( int requestCode, int resultCode , Intent data ) {
+
+        public  void  onActivityResult( int requestCode, int resultCode , Intent data ) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==code && resultCode == Activity.RESULT_OK) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
@@ -170,8 +149,27 @@ public class ListeCouponsFragment extends Fragment {
             getFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();
         }
     }
-    public void logOut() {
-        AccessToken.setCurrentAccessToken(null);
-        Profile.setCurrentProfile(null);
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu, menu);
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

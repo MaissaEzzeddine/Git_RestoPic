@@ -23,4 +23,6 @@
     <string name="cestbon">C\'est bon ?</string>
     <string name="voulez">Voulez-vous partager cette photo ?</string>
     <string name="sfb">Small Text</string>
+    <string name="new_fragment">new_fragment</string>
+    <string name="hello_world">hello_world</string>
 </resources>

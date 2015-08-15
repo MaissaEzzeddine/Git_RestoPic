@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,11 +52,15 @@ public class LogInFragment extends Fragment  {
     private static final String FIELDS = "fields";
     private static final String REQUEST_FIELDS = TextUtils.join(",", new String[]{NAME, GENDER, EMAIL, BIRTHDAY});
     private JSONObject user;
+    ActionBar actionBar ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
+        actionBar=((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.hide();
         session = new SessionManager(getActivity().getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         accessTokenTracker = new AccessTokenTracker() {
@@ -76,11 +81,7 @@ public class LogInFragment extends Fragment  {
         };
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        ((MainActivity)getActivity()).getSupportActionBar().hide();
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.login_layout, container, false);
@@ -94,7 +95,7 @@ public class LogInFragment extends Fragment  {
         Button ButtonLogin = (Button) view.findViewById(R.id.connect);
         ButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-           public void onClick(View view) {
+            public void onClick(View view) {
                 new Connect().execute();
             }
         });
@@ -139,8 +140,9 @@ public class LogInFragment extends Fragment  {
             JSONObject json = uf.createAccountFacebook(nom, prenom, email);
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
+                int id = json.getInt("id");
                 if (!fail) {
-                    session.createLoginSession("CompteFacebook");
+                    session.createLoginSession(""+id);
                     getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
                 }
             } catch (JSONException e) {
@@ -167,7 +169,8 @@ public class LogInFragment extends Fragment  {
                 int id = json.getInt("id");
                 if (!fail) {
                     session.createLoginSession(""+id);
-                    getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -186,7 +189,7 @@ public class LogInFragment extends Fragment  {
     @Override
     public void onResume() {
         super.onResume();
-       fetchUserInfo();
+        fetchUserInfo();
         updateUI();
     }
 

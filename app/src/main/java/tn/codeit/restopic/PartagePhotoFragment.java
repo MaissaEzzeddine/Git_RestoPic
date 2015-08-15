@@ -1,14 +1,10 @@
 package tn.codeit.restopic;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
@@ -21,30 +17,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.Profile;
-
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PartagePhotoFragment extends Fragment {
 
     ImageView picture ;
-    int code = 1;
     SessionManager session;
     private String filePath = null;
     private static String url_upload = "http://restopic.esy.es/RestoPic/pictures/upload.php";
     Bitmap bitmap;
-    private static final String TAG = MainActivity.class.getSimpleName();
-    String CurrentPhotoPath;
-    Uri fileUri ;
     int id ;
     String user_id , timeStamp ;
     Boolean isImage;
@@ -76,6 +62,7 @@ public class PartagePhotoFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         ActionBar actionBar=((MainActivity) getActivity()).getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setTitle("Partager la photo");
         actionBar.show();
     }
@@ -84,34 +71,26 @@ public class PartagePhotoFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_partage, menu);
     }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem item1 = menu.findItem(R.id.capture);
+        MenuItem item3 = menu.findItem(R.id.accueil);
+        item1.setVisible(false);
+        item3.setVisible(true);
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.liste_coupons:
-                getFragmentManager().beginTransaction().replace(R.id.container, new ListeCouponsFragment()).addToBackStack(null).commit();
-                return true;
-            case R.id.deconnexion:
-                logOut();
-                session.logoutUser();
-                getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
-                return true;
+
             case R.id.accueil:
-                getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
                 return true;
-            case R.id.capture:
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (i.resolveActivity(getActivity().getPackageManager()) != null) {
-                    File photoFile = null;
-                    try {
-                        photoFile = createPicture();
-                    } catch (IOException ex) {}
-                    if (photoFile != null) {
-                        fileUri = Uri.fromFile(photoFile) ;
-                        i.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                        startActivityForResult(i, code);
-                    }
-                }
-                return true;
+
             case R.id.ok:
                 new UploadFileToServer().execute();
                 getFragmentManager().beginTransaction().replace(R.id.container, new ClientFragment()).addToBackStack(null).commit();
@@ -120,13 +99,6 @@ public class PartagePhotoFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-
-
-    public void logOut() {
-        AccessToken.setCurrentAccessToken(null);
-        Profile.setCurrentProfile(null);
     }
 
     private void previewPicture(boolean isImage) {
@@ -250,33 +222,5 @@ public class PartagePhotoFragment extends Fragment {
             }
             return serverResponseCode;
         }
-    }
-
-    private File createPicture() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)  ;
-        File image = new File(storageDir + "/" + imageFileName + ".jpg");
-        // Save a file: path for use with ACTION_VIEW intents
-        CurrentPhotoPath = image.getAbsolutePath();
-        Log.e(TAG, "photo path = " + CurrentPhotoPath);
-        return image;
-    }
-
-    public  void  onActivityResult( int requestCode, int resultCode , Intent data ) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==code && resultCode == Activity.RESULT_OK) {
-            launchPartagerPhoto(true);
-        }
-    }
-
-    private void launchPartagerPhoto(boolean isImage) {
-        Bundle bundle = new Bundle();
-        bundle.putString("filePath", fileUri.getPath());
-        bundle.putBoolean("isImage", isImage);
-        PartagePhotoFragment partagePhotoFragment = new PartagePhotoFragment();
-        partagePhotoFragment.setArguments(bundle);
-        getFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();
     }
 }
