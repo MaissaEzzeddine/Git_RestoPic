@@ -16,18 +16,18 @@ import com.squareup.picasso.Picasso;
 public class MesPhotosAdapter extends BaseAdapter {
 
     private Context context;
-    private String[] imgPic;
-    private String[] imgDate;
+    private String[] Picture;
+    private String[] Date;
 
-    public MesPhotosAdapter(Context c, String[] thePic , String[] theDate)
+    public MesPhotosAdapter(Context contxt, String[] picture , String[] date)
     {
-        context = c;
-        imgPic = thePic;
-        imgDate = theDate;
+        context = contxt;
+        Picture = picture;
+        Date = date;
     }
     public int getCount() {
-        if(imgPic != null)
-            return imgPic.length;
+        if(Picture != null)
+            return Picture.length;
         else
             return 0;
     }
@@ -60,9 +60,9 @@ public class MesPhotosAdapter extends BaseAdapter {
         textView.setLayoutParams(params_Text);
         textView.setTextColor(Color.parseColor("#FF5722"));
         textView.setTextSize((int) context.getResources().getDimension(R.dimen._5sdp));
-        textView.setText(imgDate[position]);
+        textView.setText(Date[position]);
 
-        Picasso.with(this.context).load(imgPic[position]).fit().into(imageView, new Callback() {
+        Picasso.with(this.context).load(Picture[position]).fit().into(imageView, new Callback() {
             @Override
             public void onSuccess() {
             }
@@ -75,7 +75,7 @@ public class MesPhotosAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent("start.fragment.action");
-                intent.putExtra("code",imgPic[position] );
+                intent.putExtra("url",Picture[position] );
                 context.sendBroadcast(intent);
             }
         });

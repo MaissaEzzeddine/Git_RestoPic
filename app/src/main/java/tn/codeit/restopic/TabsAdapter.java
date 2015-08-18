@@ -5,11 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class TabsAdapter extends FragmentStatePagerAdapter {
-
     public TabsAdapter(FragmentManager fm) {
         super(fm);
     }
-
     @Override
     public Fragment getItem(int i) {
         switch (i) {

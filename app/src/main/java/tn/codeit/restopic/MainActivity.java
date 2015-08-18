@@ -41,8 +41,8 @@ public  class MainActivity extends AppCompatActivity  {
     int code = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
     Uri fileUri ;
-    int id ;
-    String timeStampName , timeStamp , CurrentPhotoPath , name;
+    int session_id ;
+    String timeStampName , timeStamp , CurrentPhotoPath , session_name;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -53,9 +53,9 @@ public  class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         session = new SessionManager(getApplicationContext());
-        name = session.getName() ;
-        if (name != "empty") {
-            id = Integer.parseInt(name);
+        session_name = session.getName() ;
+        if (session_name != "empty") {
+            session_id = Integer.parseInt(session_name);
         }
 
         if (!session.checkLogin()) {
@@ -108,9 +108,9 @@ public  class MainActivity extends AppCompatActivity  {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            String code = intent.getExtras().getString("code");
+            String url = intent.getExtras().getString("url");
             Bundle bundle = new Bundle();
-            bundle.putString( "code" , code);
+            bundle.putString( "url" , url);
             CouponFragment couponFragment = new CouponFragment();
             couponFragment.setArguments(bundle);
             getSupportFragmentManager().beginTransaction().replace(R.id.container, couponFragment).addToBackStack(null).commit();
@@ -145,11 +145,10 @@ public  class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-        MenuItem item1 = menu.findItem(R.id.accueil);
-        item1.setVisible(false);
-
-        MenuItem item2 = menu.findItem(R.id.ok);
-        item2.setVisible(false);
+        MenuItem acceuilItem = menu.findItem(R.id.acceuil);
+        MenuItem okItem = menu.findItem(R.id.ok);
+        acceuilItem.setVisible(false);
+        okItem.setVisible(false);
         return true;
     }
 
@@ -185,7 +184,7 @@ public  class MainActivity extends AppCompatActivity  {
     {
         timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         timeStampName = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        String user_id = "" + id +"_" ;
+        String user_id = "" + session_id +"_" ;
         File storageDir = Environment.getExternalStorageDirectory()  ;
         File image = new File(storageDir + "/" + user_id + timeStampName + ".jpg");
         // Save a file: path for use with ACTION_VIEW intents
@@ -200,7 +199,7 @@ public  class MainActivity extends AppCompatActivity  {
         bundle.putString("filePath" , path);
         bundle.putString("datePrise", timeStamp);
         bundle.putBoolean("isImage", isImage);
-        bundle.putInt("id", id);
+        bundle.putInt("id", session_id);
         PartagePhotoFragment partagePhotoFragment = new PartagePhotoFragment();
         partagePhotoFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, partagePhotoFragment).addToBackStack(null).commit();

@@ -38,7 +38,7 @@ public class ChangePasswordFragment extends Fragment {
         continuer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new forgotPassword().execute();
+                new changePassword().execute();
             }
         });
         return view;
@@ -53,7 +53,7 @@ public class ChangePasswordFragment extends Fragment {
         actionBar.show();
     }
 
-    class forgotPassword extends AsyncTask<String, String, String> {
+    class changePassword extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -61,8 +61,8 @@ public class ChangePasswordFragment extends Fragment {
         protected String doInBackground(String... args) {
             String email = getArguments().getString("EmailPassage");
             String password = inputPassword.getText().toString();
-            UserFunctions uf=new UserFunctions();
-            JSONObject json = uf.changePassword(email, password);
+            UserFunctions userFunctions=new UserFunctions();
+            JSONObject json = userFunctions.changePassword(email, password);
             try {
                 Boolean fail = json.getBoolean(TAG_Fail);
                 if (!fail) {
@@ -87,12 +87,12 @@ public class ChangePasswordFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
 
-        MenuItem item1 = menu.findItem(R.id.capture);
-        MenuItem item2 = menu.findItem(R.id.deconnexion);
-        MenuItem item3 = menu.findItem(R.id.aide);
-        item1.setVisible(false);
-        item2.setVisible(false);
-        item3.setVisible(false);
+        MenuItem captureItem = menu.findItem(R.id.capture);
+        MenuItem deconnexionItem = menu.findItem(R.id.deconnexion);
+        MenuItem aideItem = menu.findItem(R.id.aide);
+        captureItem.setVisible(false);
+        deconnexionItem.setVisible(false);
+        aideItem.setVisible(false);
     }
 
     @Override

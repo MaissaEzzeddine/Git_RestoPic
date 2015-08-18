@@ -20,7 +20,7 @@ import tn.codeit.restopic.webservice.UserFunctions;
 
 public class CreateAccountFragment extends Fragment {
 
-    EditText inputNom , inputPrenom , inputEmail , inputPass ;
+    EditText inputNom , inputPrenom , inputEmail , inputPassword ;
     private static final String TAG_FAIL = "error";
     ActionBar actionBar;
 
@@ -35,7 +35,7 @@ public class CreateAccountFragment extends Fragment {
         inputNom = (EditText) view.findViewById(R.id.nom);
         inputPrenom = (EditText) view.findViewById(R.id.prenom);
         inputEmail = (EditText) view.findViewById(R.id.email);
-        inputPass = (EditText) view.findViewById(R.id.create_password);
+        inputPassword = (EditText) view.findViewById(R.id.create_password);
         Button buttonCreateAccount = (Button) view.findViewById(R.id.create_button);
         buttonCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +64,9 @@ public class CreateAccountFragment extends Fragment {
             String nom = inputNom.getText().toString();
             String prenom = inputPrenom.getText().toString();
             String email = inputEmail.getText().toString();
-            String password = inputPass.getText().toString();
-            UserFunctions uf=new UserFunctions();
-            JSONObject json = uf.createAccount(nom,prenom,email,password);
+            String password = inputPassword.getText().toString();
+            UserFunctions userFunctions=new UserFunctions();
+            JSONObject json = userFunctions.createAccount(nom,prenom,email,password);
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
@@ -91,12 +91,12 @@ public class CreateAccountFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
 
-        MenuItem item1 = menu.findItem(R.id.capture);
-        MenuItem item2 = menu.findItem(R.id.deconnexion);
-        MenuItem item3 = menu.findItem(R.id.aide);
-        item1.setVisible(false);
-        item2.setVisible(false);
-        item3.setVisible(false);
+        MenuItem captureItem = menu.findItem(R.id.capture);
+        MenuItem deconnexionItem = menu.findItem(R.id.deconnexion);
+        MenuItem aideItem = menu.findItem(R.id.aide);
+        captureItem.setVisible(false);
+        deconnexionItem.setVisible(false);
+        aideItem.setVisible(false);
     }
 
     @Override

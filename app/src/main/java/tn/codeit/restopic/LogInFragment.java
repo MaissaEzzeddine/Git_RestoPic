@@ -94,18 +94,18 @@ public class LogInFragment extends Fragment  {
         Typeface face= Typeface.createFromAsset(getActivity().getAssets(), "font/font.ttf");
         title.setTypeface(face);
 
-        Button ButtonLogin = (Button) view.findViewById(R.id.button_connect);
-        ButtonLogin.setOnClickListener(new View.OnClickListener() {
+        Button buttonLogin = (Button) view.findViewById(R.id.button_connect);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new Connect().execute();
             }
         });
-        LoginButton ButtonFacebook = (LoginButton) view.findViewById(R.id.button_facebook);
-        ButtonFacebook.setReadPermissions("user_friends", "email", "user_birthday");
-        ButtonFacebook.setFragment(this);
+        LoginButton buttonFacebook = (LoginButton) view.findViewById(R.id.button_facebook);
+        buttonFacebook.setReadPermissions("user_friends", "email", "user_birthday");
+        buttonFacebook.setFragment(this);
 
-        ButtonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        buttonFacebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 fetchUserInfo();
@@ -139,13 +139,13 @@ public class LogInFragment extends Fragment  {
                     email = user.optString("email");
                 }
             }
-            UserFunctions uf=new UserFunctions();
-            JSONObject json = uf.createAccountFacebook(nom, prenom, email);
+            UserFunctions userFunctions=new UserFunctions();
+            JSONObject json = userFunctions.createAccountFacebook(nom, prenom, email);
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
-                int id = json.getInt("id");
+                int session_id = json.getInt("id");
                 if (!fail) {
-                    session.createLoginSession(""+id);
+                    session.createLoginSession(""+session_id);
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }
@@ -170,9 +170,9 @@ public class LogInFragment extends Fragment  {
             JSONObject json = uf.connexion(email,password);
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
-                int id = json.getInt("id");
+                int session_id = json.getInt("id");
                 if (!fail) {
-                    session.createLoginSession(""+id);
+                    session.createLoginSession(""+session_id);
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }

@@ -34,12 +34,11 @@ public class MesPhotosFragment extends Fragment {
     private static final String TAG_PICTURES = "pictures";
     private static final String TAG_URL = "url";
     private static final String TAG_DATE = "date_de_prise";
-
     JSONArray pictures = null;
     Uri fileUri ;
-    int id ;
-    String timeStampName , timeStamp , CurrentPhotoPath, url , date , name;
-    private static String url_getpicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
+    int session_id ;
+    String timeStampName , timeStamp , CurrentPhotoPath, url , date , session_name;
+    private static String urlGetPicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -53,32 +52,30 @@ public class MesPhotosFragment extends Fragment {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         session = new SessionManager(getActivity().getApplicationContext());
-        name = session.getName() ;
-        if (name != "empty") {
-            id = Integer.parseInt(name);
+        session_name = session.getName() ;
+        if (session_name != "empty") {
+            session_id = Integer.parseInt(session_name);
         }
-
         setHasOptionsMenu(true);
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
         View view=inflater.inflate(R.layout.mes_photos_layout, container, false) ;
         grid = ( GridView) view.findViewById(R.id.grid_mes_photos);
-        new GetPicture().execute() ;
+        new getPicture().execute() ;
         return view;
     }
 
-    class GetPicture extends AsyncTask<String, String, String> {
+    class getPicture extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("user_id", name));
-            json = jsonParser.makeHttpRequest(url_getpicture, "POST", params);
+            params.add(new BasicNameValuePair("user_id", session_name));
+            json = jsonParser.makeHttpRequest(urlGetPicture, "POST", params);
             Log.e("Entity Response", json.toString());
             return null;
         }

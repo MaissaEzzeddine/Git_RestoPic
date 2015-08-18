@@ -29,9 +29,9 @@ public class PartagePhotoFragment extends Fragment {
     ImageView picture ;
     SessionManager session;
     private String filePath = null;
-    private static String url_upload = "http://restopic.esy.es/RestoPic/pictures/upload.php";
+    private static String urlUpload = "http://restopic.esy.es/RestoPic/pictures/upload.php";
     Bitmap bitmap;
-    int id ;
+    int session_id ;
     String user_id , timeStamp ;
     Boolean isImage;
 
@@ -47,8 +47,8 @@ public class PartagePhotoFragment extends Fragment {
         filePath = getArguments().getString("filePath");
         timeStamp = getArguments().getString("datePrise");
         isImage = getArguments().getBoolean("isImage");
-        id = getArguments().getInt("id");
-        user_id = String.valueOf(id);
+        session_id = getArguments().getInt("id");
+        user_id = String.valueOf(session_id);
         picture = (ImageView) view.findViewById(R.id.picture);
         if (filePath != null) {
             previewPicture(isImage);
@@ -74,18 +74,16 @@ public class PartagePhotoFragment extends Fragment {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-
-        MenuItem item1 = menu.findItem(R.id.capture);
-        item1.setVisible(false);
-        MenuItem item2 = menu.findItem(R.id.accueil);
-        item2.setVisible(true);
-
+        MenuItem acceuilItem = menu.findItem(R.id.acceuil);
+        MenuItem okItem = menu.findItem(R.id.ok);
+        okItem.setVisible(true);
+        acceuilItem.setVisible(true);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.accueil:
+            case R.id.acceuil:
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 return true;
@@ -147,7 +145,7 @@ public class PartagePhotoFragment extends Fragment {
         } else {
             try {
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL(url_upload);
+                URL url = new URL(urlUpload);
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
@@ -205,7 +203,6 @@ public class PartagePhotoFragment extends Fragment {
 
                 if (serverResponseCode == 200) {
                 }
-                // close the streams //
                 fileInputStream.close();
                 dos.flush();
                 dos.close();

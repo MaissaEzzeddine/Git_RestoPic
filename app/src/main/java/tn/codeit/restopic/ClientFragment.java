@@ -8,11 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class ClientFragment extends Fragment {
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.client_layout, container, false);
-        return view;
+        return inflater.inflate(R.layout.client_layout, container, false) ;
     }
-
 }

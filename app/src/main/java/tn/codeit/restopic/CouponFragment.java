@@ -34,6 +34,7 @@ import tn.codeit.restopic.webservice.JSONParser;
 
 @SuppressWarnings("ALL")
 public class CouponFragment extends Fragment {
+
     int code = 1;
     SessionManager session ;
     private static final String TAG_ID_PHOTO = "id_photo";
@@ -41,12 +42,12 @@ public class CouponFragment extends Fragment {
     private static final String TAG_ID_COUPON = "id_coupon";
     private static final String TAG_DATE_ACTIVATION = "date_activation";
     private static final String TAG_DATE_EXPIRATION = "date_expiration";
-    private static String url_getcoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
+    private static String urlGetCoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
-    String id_code , id_photo , id_user , id_coupon , date_activation , date_expiration ;
-    TextView textCode , textDate , textE ;
+    String id_url , id_photo , id_user , id_coupon , date_activation , date_expiration ;
+    TextView textCode , textDateActivation , textDateExpiration ;
     ImageView status ;
     ViewPager Tab;
     ActionBar actionBar;
@@ -60,14 +61,14 @@ public class CouponFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.coupon_layout, container, false);
-        id_code = getArguments().getString("code");
+        id_url = getArguments().getString("url");
         textCode = (TextView) view.findViewById(R.id.codebarre);
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "font/code.ttf");
         textCode.setTypeface(font);
-        textDate = (TextView) view.findViewById(R.id.date);
-        textE = (TextView) view.findViewById(R.id.expiration);
+        textDateActivation = (TextView) view.findViewById(R.id.date);
+        textDateExpiration = (TextView) view.findViewById(R.id.expiration);
         status = (ImageView) view.findViewById(R.id.status);
-        new GetCoupon().execute() ;
+        new getCoupon().execute() ;
         return view;
     }
 
@@ -81,16 +82,16 @@ public class CouponFragment extends Fragment {
         actionBar.show();
     }
 
-    class GetCoupon extends AsyncTask<String, String, String> {
+    class getCoupon extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("url", id_code));
-            json = jsonParser.makeHttpRequest(url_getcoupon, "POST", params);
-            Log.e("Entity Response", json.toString());
+            params.add(new BasicNameValuePair("url", id_url));
+            json = jsonParser.makeHttpRequest(urlGetCoupon, "POST", params);
+            Log.e("Coupon Response", json.toString());
             return null;
         }
 
@@ -107,10 +108,10 @@ public class CouponFragment extends Fragment {
 
                     String pattern = "dd-MM-yyyy HH:mm:ss";
                     SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                    Date one = dateFormat.parse(date_expiration);
-                    Date two = dateFormat.parse(date_activation);
+                    Date dateExpiration = dateFormat.parse(date_expiration);
+                    Date dateActivation = dateFormat.parse(date_activation);
 
-                    if (one.compareTo(two) > 0 )
+                    if (dateExpiration.compareTo(dateActivation) > 0 )
                     {   status.setImageResource(R.drawable.circle_green);
                         Log.e("status" , "actif encore") ; }
                     else{
@@ -122,8 +123,8 @@ public class CouponFragment extends Fragment {
 
                     EAN13CodeBuilder code = new EAN13CodeBuilder(codeInput);
                     textCode.setText(code.getCode());
-                    textDate.setText(date_activation);
-                    textE.setText(date_expiration);
+                    textDateActivation.setText(date_activation);
+                    textDateExpiration.setText(date_expiration);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

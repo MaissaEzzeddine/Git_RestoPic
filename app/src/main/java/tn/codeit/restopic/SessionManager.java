@@ -13,7 +13,6 @@ public class SessionManager {
     private static final String PREF_NAME = "RestoPicPreference";
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "nom";
-    public static final String KEY_EMAIL = "email";
 
     public SessionManager(Context context){
         this.context = context;

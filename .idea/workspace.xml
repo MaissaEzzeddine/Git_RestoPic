@@ -63,22 +63,10 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f29d6b1-5ec9-4b28-ae41-cbc8c8075df4" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\AllPhotos.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\ImageA.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\ImageListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\ListeCouponsFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\MesPhotos.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\ResetPasswordFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\java\tn\codeit\restopic\TabPagerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\drawable\card.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\drawable\code.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\drawable\selfie.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\layout\liste_coupons_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\layout\reset_password_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Lenovo1\Documents\GitHub\Git_RestoPic\app\src\main\res\menu\menu_partage.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java" />
@@ -88,6 +76,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ForgotPasswordFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ForgotPasswordFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/JSONParser.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/JSONParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java" />
@@ -96,15 +85,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/all_photos_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/all_photos_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/UserFunctions.java" afterPath="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/UserFunctions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/client_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/client_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mes_photos_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mes_photos_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Git_RestoPic.iws" />
@@ -132,7 +118,18 @@
     <favorites_list name="Git_RestoPic" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="PartagePhotoFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/PartagePhotoFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4857143">
+              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -3032,8 +3029,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsPageAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabBar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/FragmentStackSupport.java" />
@@ -3056,33 +3051,35 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/liste_coupons_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ImageListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ClientFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/client_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/mes_photos_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/all_photos_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/JSONParser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/UserFunctions.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CodeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CouponFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ForgotPasswordFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/PartagePhotoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ClientFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CouponFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/PartagePhotoFragment.java" />
       </list>
     </option>
   </component>
@@ -3100,10 +3097,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1932" />
-    <option name="height" value="1050" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1918" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -3128,18 +3125,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Git_RestoPic" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3300,14 +3285,54 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Git_RestoPic" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Git_RestoPic" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Git_RestoPic" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restopic" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.85.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.77.101:5555" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Loulou" />
     <property name="FullScreen" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="274" />
@@ -3532,11 +3557,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1932" height="1050" extended-state="1" />
-    <editor active="false" />
+    <frame x="1" y="1" width="1918" height="1030" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30619267" sideWeight="0.4635193" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30584192" sideWeight="0.4635193" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21567568" sideWeight="0.16984402" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5493562" order="7" side_tool="true" content_ui="tabs" />
@@ -3547,10 +3572,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2371134" sideWeight="0.46030042" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33791524" sideWeight="0.45064378" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34583822" sideWeight="0.45064378" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17006437" sideWeight="0.83015597" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17135136" sideWeight="0.83015597" order="0" side_tool="false" content_ui="combo" />
       <window_info id="SonarQube" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3579,7 +3604,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30619267" sideWeight="0.4635193" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30584192" sideWeight="0.4635193" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3587,7 +3612,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2371134" sideWeight="0.46030042" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33791524" sideWeight="0.45064378" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33791524" sideWeight="0.45064378" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17006437" sideWeight="0.83015597" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3611,14 +3636,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java</url>
-          <line>145</line>
-          <properties />
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="290" />
     </breakpoint-manager>
     <watches-manager />
@@ -3693,7 +3710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3701,7 +3717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3709,7 +3724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2875">
           <caret line="287" column="0" selection-start-line="287" selection-start-column="0" selection-end-line="287" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3764,22 +3778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15315315">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3810,13 +3808,13 @@
         <state vertical-scroll-proportion="0.3227848">
           <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#861#876#0" expanded="true" />
-            <element signature="e#907#922#0" expanded="true" />
-            <element signature="e#950#965#0" expanded="true" />
+            <element signature="e#233#266#0" expanded="false" />
+            <element signature="e#291#326#0" expanded="false" />
+            <element signature="e#352#387#0" expanded="false" />
+            <element signature="e#411#444#0" expanded="false" />
+            <element signature="e#861#876#0" expanded="false" />
+            <element signature="e#907#922#0" expanded="false" />
+            <element signature="e#950#965#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3829,13 +3827,13 @@
         <state vertical-scroll-proportion="0.3227848">
           <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#861#876#0" expanded="true" />
-            <element signature="e#907#922#0" expanded="true" />
-            <element signature="e#950#965#0" expanded="true" />
+            <element signature="e#233#266#0" expanded="false" />
+            <element signature="e#291#326#0" expanded="false" />
+            <element signature="e#352#387#0" expanded="false" />
+            <element signature="e#411#444#0" expanded="false" />
+            <element signature="e#861#876#0" expanded="false" />
+            <element signature="e#907#922#0" expanded="false" />
+            <element signature="e#950#965#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3848,51 +3846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7005871">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding>
-            <element signature="e#329#345#0" expanded="true" />
-            <element signature="e#479#497#0" expanded="true" />
-            <element signature="e#730#745#0" expanded="true" />
-            <element signature="e#819#834#0" expanded="true" />
-            <element signature="e#1048#1064#0" expanded="true" />
-            <element signature="e#1095#1110#0" expanded="true" />
-            <element signature="e#1178#1193#0" expanded="true" />
-            <element signature="e#1322#1337#0" expanded="true" />
-            <element signature="e#1371#1386#0" expanded="true" />
-            <element signature="e#1478#1494#0" expanded="true" />
-            <element signature="e#1525#1540#0" expanded="true" />
-            <element signature="e#1594#1609#0" expanded="true" />
-            <element signature="e#1762#1777#0" expanded="true" />
-            <element signature="e#1958#1972#0" expanded="true" />
-            <element signature="e#2051#2065#0" expanded="true" />
-            <element signature="e#2113#2129#0" expanded="true" />
-            <element signature="e#2160#2175#0" expanded="true" />
-            <element signature="e#2279#2297#0" expanded="true" />
-            <element signature="e#2323#2338#0" expanded="true" />
-            <element signature="e#2588#2602#0" expanded="true" />
-            <element signature="e#2677#2691#0" expanded="true" />
-            <element signature="e#2737#2753#0" expanded="true" />
-            <element signature="e#2784#2799#0" expanded="true" />
-            <element signature="e#2821#2838#0" expanded="true" />
-            <element signature="e#2905#2920#0" expanded="true" />
-            <element signature="e#2997#3012#0" expanded="true" />
-            <element signature="e#3206#3222#0" expanded="true" />
-            <element signature="e#3253#3268#0" expanded="true" />
-            <element signature="e#3290#3307#0" expanded="true" />
-            <element signature="e#3454#3469#0" expanded="true" />
-            <element signature="e#3788#3813#0" expanded="true" />
-            <element signature="e#3912#3927#0" expanded="true" />
-            <element signature="e#4100#4115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3901,115 +3854,8 @@
         <state vertical-scroll-proportion="0.7671233">
           <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
           <folding>
-            <element signature="e#376#392#0" expanded="true" />
-            <element signature="e#769#784#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31743118">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ClientFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26972476">
-          <caret line="92" column="55" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#339#355#0" expanded="true" />
-            <element signature="e#386#401#0" expanded="true" />
-            <element signature="e#642#672#0" expanded="true" />
-            <element signature="e#794#809#0" expanded="true" />
-            <element signature="e#856#872#0" expanded="true" />
-            <element signature="e#903#918#0" expanded="true" />
-            <element signature="e#940#959#0" expanded="true" />
-            <element signature="e#1021#1036#0" expanded="true" />
-            <element signature="e#1120#1135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-          <folding>
-            <element signature="e#328#344#0" expanded="false" />
-            <element signature="e#375#390#0" expanded="false" />
-            <element signature="e#727#742#0" expanded="false" />
-            <element signature="e#788#804#0" expanded="false" />
-            <element signature="e#835#850#0" expanded="false" />
-            <element signature="e#951#966#0" expanded="false" />
-            <element signature="e#1232#1247#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="e#338#354#0" expanded="false" />
-            <element signature="e#385#400#0" expanded="false" />
-            <element signature="e#472#487#0" expanded="false" />
-            <element signature="e#842#857#0" expanded="false" />
-            <element signature="e#879#898#0" expanded="false" />
-            <element signature="e#1108#1123#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87344915">
-          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
-          <folding>
-            <element signature="e#297#313#0" expanded="true" />
-            <element signature="e#675#690#0" expanded="true" />
-            <element signature="e#738#754#0" expanded="true" />
-            <element signature="e#1224#1240#0" expanded="true" />
-            <element signature="e#1717#1733#0" expanded="true" />
+            <element signature="e#376#392#0" expanded="false" />
+            <element signature="e#769#784#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4025,122 +3871,241 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1297619">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32380953">
-          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CodeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52619046">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CouponFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62738097">
-          <caret line="61" column="80" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16190477">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54642856">
-          <caret line="74" column="216" selection-start-line="74" selection-start-column="216" selection-end-line="74" selection-end-column="216" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ForgotPasswordFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20238096">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7488095">
-          <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18214285">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/PartagePhotoFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/UserFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7083333">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3642857">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9392857">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/UserFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87857145">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/webservice/JSONParser.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7329843">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13961606">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14834206">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/TabsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.118673645">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ChangePasswordFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ClientFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CodeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7690476">
+          <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CreateAccountFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30357143">
+          <caret line="68" column="43" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/EAN13CodeBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060714286">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/ForgotPasswordFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5952381">
+          <caret line="98" column="35" selection-start-line="98" selection-start-column="35" selection-end-line="98" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/LogInFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="170" column="17" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3859#3860#0" expanded="false" />
+            <element signature="e#3914#3915#0" expanded="false" />
+            <element signature="e#5079#5080#0" expanded="false" />
+            <element signature="e#5123#5124#0" expanded="false" />
+            <element signature="e#6299#6300#0" expanded="false" />
+            <element signature="e#6343#6344#0" expanded="false" />
+            <element signature="e#7708#7709#0" expanded="false" />
+            <element signature="e#7741#7742#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58285713">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/AllPhotosFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25904763">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MesPhotosFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84190476">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/CouponFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.032380953">
+          <caret line="139" column="45" selection-start-line="139" selection-start-column="45" selection-end-line="139" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58285713">
+          <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/change_password_layout.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/code_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5885947">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#1232#1247#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/create_account_layout.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+          <folding>
+            <element signature="e#2212#2228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/forgot_password_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#795#811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68839103">
+          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tn/codeit/restopic/PartagePhotoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4857143">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding />
         </state>
       </provider>

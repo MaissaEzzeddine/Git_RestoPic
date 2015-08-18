@@ -22,13 +22,12 @@ import tn.codeit.restopic.webservice.JSONParser;
 public class AllPhotosFragment extends Fragment{
 
     GridView grid ;
-    private static String url_allpictures = "http://restopic.esy.es/RestoPic/pictures/allpictures.php" ;
+    private static String urlAllPictures = "http://restopic.esy.es/RestoPic/pictures/allpictures.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
     private String[] urls ;
     private String[] dates ;
-    private static final String TAG = MainActivity.class.getSimpleName();
     private static final String TAG_PICTURES = "pictures";
     private static final String TAG_URL = "url";
     private static final String TAG_DATE = "date_de_prise";
@@ -40,18 +39,18 @@ public class AllPhotosFragment extends Fragment{
     {
         View view=inflater.inflate(R.layout.all_photos_layout, container, false) ;
         grid = (GridView) view.findViewById(R.id.grid_all_photos);
-        new AllPictures().execute() ;
+        new allPictures().execute() ;
         return view;
     }
 
-    class AllPictures extends AsyncTask<String, String, String> {
+    class allPictures extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            json = jsonParser.makeHttpRequest(url_allpictures, "POST", params);
+            json = jsonParser.makeHttpRequest(urlAllPictures, "POST", params);
             Log.e("Entity Response", json.toString());
             return null;
         }

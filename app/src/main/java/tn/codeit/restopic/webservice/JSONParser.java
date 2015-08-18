@@ -21,7 +21,7 @@ import java.util.List;
 
 public class JSONParser {
     HttpEntity httpEntity= null ;
-    static JSONObject jObj = null;
+    static JSONObject jsonObject = null;
     static String json = "";
     InputStream inputStream = null;
     public JSONObject makeHttpRequest(String url, String method, List<NameValuePair> params) {
@@ -61,10 +61,10 @@ public class JSONParser {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
         try {
-            jObj = new JSONObject(json);
+            jsonObject = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
-        return jObj;
+        return jsonObject;
     }
 }

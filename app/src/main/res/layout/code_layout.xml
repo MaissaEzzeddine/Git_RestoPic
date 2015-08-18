@@ -15,7 +15,7 @@
         android:hint="Veuillez saisir le code"
         android:textColor="@color/colorPrimaryDark"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_50sdp" />
+        android:layout_marginTop="@dimen/_30sdp" />
 
     <Button
         android:layout_width="@dimen/_110sdp"

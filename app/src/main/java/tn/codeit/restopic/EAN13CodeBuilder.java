@@ -1,6 +1,7 @@
 package tn.codeit.restopic;
 
 public class EAN13CodeBuilder {
+
     private String codeStringValue;
     private String generatedCode;
 
