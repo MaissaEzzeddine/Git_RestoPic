@@ -3,26 +3,21 @@ package tn.codeit.restopic;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tn.codeit.restopic.webservice.JSONParser;
+import tn.codeit.restopic.webservice.UserFunctions;
 
 public class AllPhotosFragment extends Fragment{
 
     GridView grid ;
-    private static String urlAllPictures = "http://restopic.esy.es/RestoPic/pictures/allpictures.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -49,9 +44,8 @@ public class AllPhotosFragment extends Fragment{
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            json = jsonParser.makeHttpRequest(urlAllPictures, "POST", params);
-            Log.e("Entity Response", json.toString());
+            UserFunctions userFunctions=new UserFunctions();
+            json = userFunctions.getAllPhotos();
             return null;
         }
 

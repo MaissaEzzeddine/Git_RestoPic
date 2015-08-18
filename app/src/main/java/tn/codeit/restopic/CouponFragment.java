@@ -19,18 +19,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import tn.codeit.restopic.webservice.JSONParser;
+import tn.codeit.restopic.webservice.UserFunctions;
 
 @SuppressWarnings("ALL")
 public class CouponFragment extends Fragment {
@@ -42,7 +39,6 @@ public class CouponFragment extends Fragment {
     private static final String TAG_ID_COUPON = "id_coupon";
     private static final String TAG_DATE_ACTIVATION = "date_activation";
     private static final String TAG_DATE_EXPIRATION = "date_expiration";
-    private static String urlGetCoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -88,10 +84,8 @@ public class CouponFragment extends Fragment {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("url", id_url));
-            json = jsonParser.makeHttpRequest(urlGetCoupon, "POST", params);
-            Log.e("Coupon Response", json.toString());
+            UserFunctions userFunctions=new UserFunctions();
+            json = userFunctions.getCoupon(id_url);
             return null;
         }
 

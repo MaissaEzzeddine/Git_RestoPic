@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +12,12 @@ import android.widget.GridView;
 
 import com.facebook.FacebookSdk;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tn.codeit.restopic.webservice.JSONParser;
+import tn.codeit.restopic.webservice.UserFunctions;
 
 
 @SuppressWarnings("ALL")
@@ -38,7 +33,6 @@ public class MesPhotosFragment extends Fragment {
     Uri fileUri ;
     int session_id ;
     String timeStampName , timeStamp , CurrentPhotoPath, url , date , session_name;
-    private static String urlGetPicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
     JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
     JSONObject json ;
@@ -73,10 +67,8 @@ public class MesPhotosFragment extends Fragment {
             super.onPreExecute();
         }
         protected String doInBackground(String... args) {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("user_id", session_name));
-            json = jsonParser.makeHttpRequest(urlGetPicture, "POST", params);
-            Log.e("Entity Response", json.toString());
+            UserFunctions userFunctions=new UserFunctions();
+            json = userFunctions.getMesPhotos(session_name);
             return null;
         }
 
