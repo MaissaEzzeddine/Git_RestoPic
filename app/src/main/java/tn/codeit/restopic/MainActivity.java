@@ -163,6 +163,7 @@ public  class MainActivity extends AppCompatActivity  {
                 return true;
             case R.id.capture:
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
                 if (i.resolveActivity(this.getPackageManager()) != null) {
                     File photoFile = null;
                     try {

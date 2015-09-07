@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,6 +68,11 @@ public class ChangePasswordFragment extends Fragment {
                 Boolean fail = json.getBoolean(TAG_Fail);
                 if (!fail) {
                     getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "Votre mot de passe a ete change avec succes", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

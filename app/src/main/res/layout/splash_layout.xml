@@ -28,8 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/app_logo"
+        android:layout_below="@id/app_name"
         android:src="@drawable/logo_splash"
-        android:layout_below="@+id/restopic"
         android:layout_centerInParent="true" />
 
 </RelativeLayout>

@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import tn.codeit.restopic.webservice.JSONParser;
@@ -100,18 +101,32 @@ public class CouponFragment extends Fragment {
                     date_activation = json.getString(TAG_DATE_ACTIVATION);
                     date_expiration = json.getString(TAG_DATE_EXPIRATION);
 
-                    String pattern = "dd-MM-yyyy HH:mm:ss";
-                    SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                    Date dateExpiration = dateFormat.parse(date_expiration);
-                    Date dateActivation = dateFormat.parse(date_activation);
+                    try{
 
-                    if (dateExpiration.compareTo(dateActivation) > 0 )
-                    {   status.setImageResource(R.drawable.circle_green);
-                        Log.e("status" , "actif encore") ; }
-                    else{
-                        status.setImageResource(R.drawable.circle_red);
-                        Log.e("status" , "desactive") ;
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+                        Calendar c = Calendar.getInstance();
+                        System.out.println("Current time => " + c.getTime());
+
+                        String formattedDate = formatter.format(c.getTime());
+
+                        Date date1 = formatter.parse(formattedDate);
+                        Date date2 = formatter.parse(date_expiration);
+
+                        if (date1.compareTo(date2) < 0) {
+                            status.setImageResource(R.drawable.circle_green);
+                            Log.e("status" , "actif encore") ;
+                        }
+
+                        else{
+                            status.setImageResource(R.drawable.circle_red);
+                            Log.e("status" , "desactive") ;
+                        }
+
+                    }catch (ParseException e1){
+                        e1.printStackTrace();
                     }
+
                     String ids = id_user+id_photo+id_coupon ;
                     String codeInput = "1234" + ids + "9876" ;
 
@@ -121,8 +136,6 @@ public class CouponFragment extends Fragment {
                     textDateExpiration.setText(date_expiration);
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
                 e.printStackTrace();
             }
         }

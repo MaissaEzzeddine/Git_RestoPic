@@ -141,6 +141,11 @@ public class LogInFragment extends Fragment  {
             }
             UserFunctions userFunctions=new UserFunctions();
             JSONObject json = userFunctions.createAccountFacebook(nom, prenom, email);
+            getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    Toast.makeText(getActivity(), "Votre compte a ete cee avec succes et vous etes bien connecte ", Toast.LENGTH_LONG).show();
+                }
+            });
             try {
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 int session_id = json.getInt("id");
@@ -175,6 +180,11 @@ public class LogInFragment extends Fragment  {
                     session.createLoginSession(""+session_id);
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "Vous etes connecte", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
