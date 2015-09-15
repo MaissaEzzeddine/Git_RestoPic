@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 
@@ -23,6 +24,7 @@ import tn.codeit.restopic.webservice.UserFunctions;
 @SuppressWarnings("ALL")
 public class MesPhotosFragment extends Fragment {
 
+    private static final String TAG_TESTCONNECTION = "TEST" ;
     SessionManager session;
     int code = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -74,6 +76,15 @@ public class MesPhotosFragment extends Fragment {
 
         protected void onPostExecute(String file_url) {
             try {
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
                     pictures = json.getJSONArray(TAG_PICTURES);

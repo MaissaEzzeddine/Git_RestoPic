@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +24,7 @@ public class ForgotPasswordFragment extends Fragment {
 
     private static final String TAG_FAIL = "error";
     EditText inputEmail;
+    private static final String TAG_TESTCONNECTION = "TEST" ;
     Button resetPassword ;
 
     @Override
@@ -64,6 +66,15 @@ public class ForgotPasswordFragment extends Fragment {
             UserFunctions userFunctions=new UserFunctions();
             JSONObject json = userFunctions.forgotPassword(email);
             try {
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
                     Bundle bundle = new Bundle();

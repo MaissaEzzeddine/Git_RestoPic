@@ -24,6 +24,8 @@ public class ChangePasswordFragment extends Fragment {
     Button continuer;
     EditText inputPassword ;
     private static final String TAG_Fail = "error";
+    private static final String TAG_TESTCONNECTION = "TEST" ;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,17 @@ public class ChangePasswordFragment extends Fragment {
             UserFunctions userFunctions=new UserFunctions();
             JSONObject json = userFunctions.changePassword(email, password);
             try {
+
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
                 Boolean fail = json.getBoolean(TAG_Fail);
                 if (!fail) {
                     getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();

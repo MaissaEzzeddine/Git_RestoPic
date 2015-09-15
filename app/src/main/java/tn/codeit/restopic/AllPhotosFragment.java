@@ -7,19 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import tn.codeit.restopic.webservice.JSONParser;
 import tn.codeit.restopic.webservice.UserFunctions;
 
 public class AllPhotosFragment extends Fragment{
 
     GridView grid ;
-    JSONParser jsonParser = new JSONParser();
     private static final String TAG_FAIL = "error";
+    private static final String TAG_TESTCONNECTION = "TEST" ;
+
     JSONObject json ;
     private String[] urls ;
     private String[] dates ;
@@ -51,6 +52,16 @@ public class AllPhotosFragment extends Fragment{
 
         protected void onPostExecute(String file_url) {
             try {
+
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
                     pictures = json.getJSONArray(TAG_PICTURES);

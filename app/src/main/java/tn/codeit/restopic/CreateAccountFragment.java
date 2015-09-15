@@ -24,6 +24,8 @@ public class CreateAccountFragment extends Fragment {
     EditText inputNom , inputPrenom , inputEmail , inputPassword ;
     private static final String TAG_FAIL = "error";
     ActionBar actionBar;
+    private static final String TAG_TESTCONNECTION = "TEST" ;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,12 +71,21 @@ public class CreateAccountFragment extends Fragment {
             UserFunctions userFunctions=new UserFunctions();
             JSONObject json = userFunctions.createAccount(nom,prenom,email,password);
             try {
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
                     getFragmentManager().beginTransaction().replace(R.id.container, new LogInFragment()).addToBackStack(null).commit();
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
-                            Toast.makeText(getActivity(), "Votre compte a été cee avec succes", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Votre compte a ete cee avec succes", Toast.LENGTH_LONG).show();
                         }
                     });
                 }

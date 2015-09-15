@@ -22,14 +22,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
+
+import tn.codeit.restopic.webservice.UserFunctions;
 
 public class PartagePhotoFragment extends Fragment {
 
     ImageView picture ;
     SessionManager session;
     private String filePath = null;
-    private static String urlUpload = "http://restopic.esy.es/RestoPic/pictures/upload.php";
     Bitmap bitmap;
     int session_id ;
     String user_id , timeStamp ;
@@ -128,7 +128,6 @@ public class PartagePhotoFragment extends Fragment {
     public int uploadFile(final String sourceFileUri) {
         String fileName = sourceFileUri;
         int serverResponseCode = 0 ;
-        HttpURLConnection conn = null;
         DataOutputStream dos = null;
         String lineEnd = "\r\n";
         String twoHyphens = "--";
@@ -145,18 +144,9 @@ public class PartagePhotoFragment extends Fragment {
         } else {
             try {
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL(urlUpload);
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                conn.setUseCaches(false);
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Connection", "Keep-Alive");
-                conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                conn.setRequestProperty("uploaded_file", fileName);
-
+                UserFunctions userFunctions=new UserFunctions();
+                HttpURLConnection conn = userFunctions.PartagerPhoto(fileName, boundary);
                 dos = new DataOutputStream(conn.getOutputStream());
-
                 dos.writeBytes(twoHyphens + boundary + lineEnd);
                 dos.writeBytes("Content-Disposition: form-data; name=\"user_id\"" + lineEnd);
                 //dos.writeBytes("Content-Type: text/plain; charset=UTF-8" + lineEnd);

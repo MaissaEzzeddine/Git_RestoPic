@@ -1,24 +1,33 @@
 package tn.codeit.restopic.webservice;
 
 import android.util.Log;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserFunctions {
 
     JSONParser jsonParser = new JSONParser();
-    private static String urlNewPassword = "http://restopic.esy.es/RestoPic/v1/newpassword";
-    private static String urlCode = "http://restopic.esy.es/RestoPic/v1/code";
-    private static String urlCreateAccount = "http://restopic.esy.es/RestoPic/v1/register";
-    private static String urlCreateAccountFacebook = "http://restopic.esy.es/RestoPic/v1/register_facebook";
-    private static String urlForgotPassword = "http://restopic.esy.es/RestoPic/v1/forgotpassword";
-    private static String urlLogin = "http://restopic.esy.es/RestoPic/v1/login";
-    private static String urlAllPictures = "http://restopic.esy.es/RestoPic/pictures/allpictures.php" ;
-    private static String urlGetPicture = "http://restopic.esy.es/RestoPic/pictures/getpictures.php" ;
-    private static String urlGetCoupon = "http://restopic.esy.es/RestoPic/pictures/getcoupon.php" ;
+    private static String urlNewPassword = "http://SERVERADRESS/RestoPic/v1/newpassword";
+    private static String urlCode = "http://SERVERADRESS/RestoPic/v1/code";
+    private static String urlCreateAccount = "http://SERVERADRESS/RestoPic/v1/register";
+    private static String urlCreateAccountFacebook = "http://SERVERADRESS/RestoPic/v1/register_facebook";
+    private static String urlForgotPassword = "http://SERVERADRESS/RestoPic/v1/forgotpassword";
+    private static String urlLogin = "http://SERVERADRESS/RestoPic/v1/login";
+    private static String urlAllPictures = "http://SERVERADRESS/RestoPic/pictures/allpictures.php" ;
+    private static String urlGetPicture = "http://SERVERADRESS/RestoPic/pictures/getpictures.php" ;
+    private static String urlGetCoupon = "http://SERVERADRESS/RestoPic/pictures/getcoupon.php" ;
+    private static String urlUpload = "http://SERVERADRESS/RestoPic/pictures/upload.php";
+
 
     public JSONObject  changePassword ( String email ,String password) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -82,6 +91,34 @@ public class UserFunctions {
         Log.e("All Pictures Response", json.toString());
         return json;
     }
+
+    public HttpURLConnection PartagerPhoto(String fileName , String boundary) {
+        HttpURLConnection conn = null;
+        URL url = null;
+        try {
+            url = new URL(urlUpload);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        try {
+            conn = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        conn.setDoInput(true);
+        conn.setDoOutput(true);
+        conn.setUseCaches(false);
+        try {
+            conn.setRequestMethod("POST");
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        conn.setRequestProperty("Connection", "Keep-Alive");
+        conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+        conn.setRequestProperty("uploaded_file", fileName);
+        return  conn ;
+    }
+
 
     public JSONObject getMesPhotos(String session_name) {
         List<NameValuePair> params = new ArrayList<NameValuePair>();

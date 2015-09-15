@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +34,7 @@ import tn.codeit.restopic.webservice.UserFunctions;
 @SuppressWarnings("ALL")
 public class CouponFragment extends Fragment {
 
+    private static final String TAG_TESTCONNECTION = "TEST" ;
     int code = 1;
     SessionManager session ;
     private static final String TAG_ID_PHOTO = "id_photo";
@@ -92,6 +94,18 @@ public class CouponFragment extends Fragment {
 
         protected void onPostExecute(String file_url) {
             try {
+
+                String testConnection = json.getString(TAG_TESTCONNECTION);
+                if (testConnection == "serverDown")
+                {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(getActivity(), "serveur non disponible maintenant", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
+
                 Boolean fail = json.getBoolean(TAG_FAIL);
                 if (!fail) {
 

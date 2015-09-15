@@ -32,4 +32,17 @@
         android:src="@drawable/logo_splash"
         android:layout_centerInParent="true" />
 
+    <Button
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_36sdp"
+        android:text="@string/try_run"
+        android:id="@+id/try_run"
+        android:background="@drawable/custom_btn"
+        style="@style/com_facebook_button"
+        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp" />
+
 </RelativeLayout>
